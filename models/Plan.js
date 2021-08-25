@@ -1,0 +1,25 @@
+const mongoose = require('mongoose');
+
+const PlanSchema = mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+  },
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
+  },
+  complete: {
+    type: Boolean,
+    default: false,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+module.exports = mongoose.model('plan', PlanSchema);
