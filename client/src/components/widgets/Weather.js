@@ -9,7 +9,7 @@ const Weather = () => {
   });
   const { lat, lon } = coordinate;
 
-  const API_KEY = '063751e607a104984db06a00d9da7946';
+  const API_KEY = 'b87e6baf25314701a619bc852c84fe30';
 
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
 

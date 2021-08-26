@@ -1,3 +1,14 @@
+// PostContext Types
+export const GET_PLANS = 'GET_PLANS';
+export const ADD_PLAN = 'ADD_PLAN';
+export const DELETE_PLAN = 'DELETE_PLAN';
+export const UPDATE_PLAN = 'UPDATE_PLAN';
+export const SET_CURRENT = 'SET_CURRENT';
+export const CLEAR_CURRENT = 'CLEAR_CURRENT';
+export const FILTER_PLANS = 'FILTER_PLANS';
+export const CLEAR_FILTER = 'CLEAR_FILTER';
+export const PLAN_ERROR = 'PLAN_ERROR';
+
 // Auth Types
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';

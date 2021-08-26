@@ -9,7 +9,7 @@ import {
   USER_LOADED,
 } from '../types';
 
-const variable = (state, action) => {
+const authReducer = (state, action) => {
   switch (action.type) {
     case USER_LOADED:
       return {
@@ -50,4 +50,4 @@ const variable = (state, action) => {
   }
 };
 
-export default variable;
+export default authReducer;
