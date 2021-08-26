@@ -30,18 +30,17 @@ const Weather = () => {
 
   const getWeather = async () => {
     getGeoData();
-    console.log(lat, lon);
     await fetch(url)
       .then((res) => res.json())
       .then((result) => {
         setData({
-          city: result !== null && result.name,
-          weather: result !== null && result.weather[0].icon,
-          temperature: result !== null && result.main.temp,
+          city: result !== '' && result.name,
+          weather: result !== '' && result.weather[0].icon,
+          temperature: result !== '' && result.main.temp,
         });
-        console.log(url);
         console.log(data);
-      });
+      })
+      .catch((err) => console.error(err));
   };
 
   const { city, weather, temperature } = data;
