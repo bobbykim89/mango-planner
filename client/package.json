@@ -8,9 +8,15 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "autoprefixer": "^9.8.6",
+    "axios": "^0.21.1",
+    "hamburger-react": "^2.4.1",
+    "moment": "^2.29.1",
     "postcss": "^7.0.36",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-helmet-async": "^1.1.0",
+    "react-moment": "^1.1.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7",
     "web-vitals": "^1.1.2"
@@ -38,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "uuid": "^8.3.2"
+  },
+  "proxy": "http://localhost:5000"
 }
