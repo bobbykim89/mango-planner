@@ -65,7 +65,7 @@ const Login = (props) => {
                 value={email}
                 onChange={onChange}
                 required
-                className='block w-full p-2 border-2 border-indigo-400'
+                className='block w-full p-2 border-2 border-indigo-400 outline-none'
               />
             </div>
             <div className='mb-6'>
@@ -82,7 +82,7 @@ const Login = (props) => {
                 value={password}
                 onChange={onChange}
                 required
-                className='block w-full p-2 border-2 border-indigo-400'
+                className='block w-full p-2 border-2 border-indigo-400 outline-none'
               />
             </div>
             <input
