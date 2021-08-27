@@ -19,7 +19,7 @@ const PlanItem = ({ plan }) => {
       <div className='text-yellow-600 text-lg font-semibold text-left'>
         <span>{title}</span>
       </div>
-      <div className='text-yellow-600 text-md text-left'>
+      <div className='text-yellow-600 text-md text-left whitespace-pre-line'>
         <span>{content}</span>
       </div>
     </section>
