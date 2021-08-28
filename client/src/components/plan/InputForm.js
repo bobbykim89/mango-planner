@@ -9,9 +9,10 @@ const InputForm = () => {
     title: '',
     content: '',
     complete: false,
+    type: 'personal',
   });
 
-  const { title, content } = plan;
+  const { title, content, type } = plan;
 
   const onChange = (e) => {
     setPlan({ ...plan, [e.target.name]: e.target.value });
@@ -24,10 +25,11 @@ const InputForm = () => {
       title: '',
       content: '',
       complete: false,
+      type: 'personal',
     });
   };
   return (
-    <section>
+    <section className='lg:sticky lg:top-24'>
       <form
         onSubmit={onSubmit}
         className='flex flex-col rounded-md px-4 py-4 md:px-8 md:px-8 bg-yellow-50 shadow-lg'
@@ -67,6 +69,44 @@ const InputForm = () => {
             onChange={onChange}
             className='outline-none block w-full border-2 p-2 shadow border-yellow-400 bg-yellow-50'
           ></textarea>
+        </div>
+        <div className='mb-4 text-lg font-semibold'>
+          <label htmlFor='personal_edit' className='text-yellow-600'>
+            Personal{' '}
+          </label>
+          <input
+            type='radio'
+            id='personal_edit'
+            name='type'
+            value='personal'
+            checked={type === 'personal'}
+            onChange={onChange}
+            className='mr-6'
+          />
+          <label htmlFor='work_edit' className='text-green-600'>
+            Work{' '}
+          </label>
+          <input
+            type='radio'
+            id='work_edit'
+            name='type'
+            value='work'
+            checked={type === 'work'}
+            onChange={onChange}
+            className='mr-6'
+          />
+          <label htmlFor='errand_edit' className='text-indigo-600'>
+            Errand{' '}
+          </label>
+          <input
+            type='radio'
+            id='errand_edit'
+            name='type'
+            value='errand'
+            checked={type === 'errand'}
+            onChange={onChange}
+            className='mr-6'
+          />
         </div>
         <div>
           <input
