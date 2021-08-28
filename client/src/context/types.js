@@ -18,6 +18,8 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const TOGGLE_DARK = 'TOGGLE_DARK';
+export const DARK_FAIL = 'DARK_FAIL';
 
 //Alert Types
 export const SET_ALERT = 'SET_ALERT';

@@ -6,6 +6,7 @@ import logo from './logo.png';
 import Weather from '../widgets/Weather';
 
 import { AuthContext } from '../../context/auth/AuthContext';
+import DarkMode from '../widgets/DarkMode';
 
 const Navbar = ({ title }) => {
   const authContext = useContext(AuthContext);
@@ -90,8 +91,12 @@ const Navbar = ({ title }) => {
             (navBarOpen ? ' block' : ' hidden')
           }
         >
-          <div className='flex flex-row pt-2 lg:pt-0 lg:flex-grow mx-auto justify-center lg:justify-start'>
-            <Weather />
+          <div className='flex flex-row pt-2 lg:pt-0  mx-auto justify-center lg:justify-start'>
+            <div className='mr-4'>
+              <Weather />
+            </div>
+
+            <DarkMode />
           </div>
           {/* Auth Section */}
           <div className='flex flex-wrap pt-3 pb-2 lg:pb-1 lg:pt-1 justify-center'>

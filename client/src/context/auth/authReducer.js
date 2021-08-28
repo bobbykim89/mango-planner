@@ -1,11 +1,13 @@
 import {
   AUTH_ERROR,
   CLEAR_ERRORS,
+  DARK_FAIL,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
+  TOGGLE_DARK,
   USER_LOADED,
 } from '../types';
 
@@ -38,6 +40,16 @@ const authReducer = (state, action) => {
         isAuthenticated: false,
         loading: false,
         user: null,
+        error: action.payload,
+      };
+    case TOGGLE_DARK:
+      return {
+        ...state,
+        user: action.payload,
+      };
+    case DARK_FAIL:
+      return {
+        ...state,
         error: action.payload,
       };
     case CLEAR_ERRORS:

@@ -87,7 +87,7 @@ router.put('/:id', Auth, async (req, res) => {
     if (user.id.toString() !== id) {
       return res.status(401).json({ msg: 'Not Authorized' });
     }
-    user = await User.findByIdAndUpdate(req.params.id, req.body, {
+    user = await User.findByIdAndUpdate(id, req.body, {
       new: true,
     });
     res.json(user);

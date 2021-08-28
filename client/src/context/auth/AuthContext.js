@@ -5,11 +5,13 @@ import setAuthToken from '../../utils/setAuthToken';
 import {
   AUTH_ERROR,
   CLEAR_ERRORS,
+  DARK_FAIL,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
+  TOGGLE_DARK,
   USER_LOADED,
 } from '../types';
 
@@ -89,6 +91,24 @@ const AuthState = (props) => {
   // Logout
   const logout = () => dispatch({ type: LOGOUT });
 
+  // Toggle DarkMode
+  const toggleDark = async (user) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    try {
+      const res = await axios.put(`/api/users/${user._id}`, user, config);
+      dispatch({ type: TOGGLE_DARK, payload: res.data });
+    } catch (err) {
+      dispatch({
+        type: DARK_FAIL,
+        payload: err.response.data.msg,
+      });
+    }
+  };
+
   // Clear Errors
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
   return (
@@ -104,6 +124,7 @@ const AuthState = (props) => {
         login,
         logout,
         clearErrors,
+        toggleDark,
       }}
     >
       {props.children}

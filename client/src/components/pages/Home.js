@@ -1,12 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import InputForm from '../plan/InputForm';
 import { PlanContext } from '../../context/plan/PlanContext';
+import { AuthContext } from '../../context/auth/AuthContext';
 import PlanItem from '../plan/PlanItem';
 import ListFilter from '../plan/ListFilter';
 
 const Home = () => {
   const planContext = useContext(PlanContext);
-  const { plans, current, filtered } = planContext;
+  const authContext = useContext(AuthContext);
+  const { plans, filtered } = planContext;
+
+  useEffect(() => {
+    authContext.loadUser();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <section className='bg-red-50 min-h-85v'>

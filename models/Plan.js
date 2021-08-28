@@ -19,7 +19,7 @@ const PlanSchema = mongoose.Schema({
   type: {
     type: String,
     default: 'personal',
-  }
+  },
   date: {
     type: Date,
     default: Date.now,
