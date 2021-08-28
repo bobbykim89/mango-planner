@@ -16,6 +16,10 @@ const PlanSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  type: {
+    type: String,
+    default: 'personal',
+  }
   date: {
     type: Date,
     default: Date.now,

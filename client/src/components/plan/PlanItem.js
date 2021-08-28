@@ -102,19 +102,19 @@ const PlanItem = ({ plan }) => {
             <span>{plan.content}</span>
           </div>
         </div>
-        <div className='grid-flow-row text-yellow-600 text-md text-right align-middle'>
+        <div className='grid-flow-row text-yellow-600 text-md text-right'>
           <span
             className={
-              'material-icons cursor-pointer mb-4' +
+              'material-icons cursor-pointer align-middle' +
               (plan.complete ? ' text-green-600' : ' text-red-600')
             }
             onClick={toggleComplete}
           >
-            check_circle_outline
+            verified
           </span>
           <div className={'flex flex-col' + (details ? '' : ' hidden')}>
             <span
-              className='material-icons cursor-pointer mb-4'
+              className='material-icons cursor-pointer my-4'
               onClick={handleToggler}
             >
               edit
@@ -127,12 +127,12 @@ const PlanItem = ({ plan }) => {
             </span>
           </div>
         </div>
-        <div className='col-span-6'>
-          <span
-            className='material-icons text-yellow-600 cursor-pointer'
-            onClick={() => setDetails(!details)}
-          >
-            {details ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}
+        <div
+          className='col-span-6 cursor-pointer'
+          onClick={() => setDetails(!details)}
+        >
+          <span className='material-icons text-yellow-600 '>
+            {details ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
           </span>
         </div>
       </div>
@@ -156,7 +156,7 @@ const PlanItem = ({ plan }) => {
               onChange={onChange}
               className='block w-full outline-none bg-transparent p-2 border-b-2 mb-4 border-indigo-100'
             />
-            <div className='mb-4 text-md font-semibold'>
+            <div className='text-md font-semibold'>
               <label htmlFor='personal' className='text-yellow-600'>
                 Personal{' '}
               </label>

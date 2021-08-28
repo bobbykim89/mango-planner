@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import InputForm from '../plan/InputForm';
 import { PlanContext } from '../../context/plan/PlanContext';
 import PlanItem from '../plan/PlanItem';
+import ListFilter from '../plan/ListFilter';
 
 const Home = () => {
   const planContext = useContext(PlanContext);
@@ -14,7 +15,10 @@ const Home = () => {
           <InputForm />
         </div>
         <div className='text-center'>
-          {plans && plans.map((plan) => <PlanItem plan={plan} key={plan.id} />)}
+          <ListFilter />
+          {filtered !== null
+            ? filtered.map((plan) => <PlanItem plan={plan} key={plan.id} />)
+            : plans.map((plan) => <PlanItem plan={plan} key={plan.id} />)}
         </div>
       </div>
     </section>

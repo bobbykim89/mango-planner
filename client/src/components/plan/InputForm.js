@@ -49,7 +49,7 @@ const InputForm = () => {
             onChange={onChange}
             required
             placeholder='Please write your plan here'
-            className='outline-none block w-full p-2 border-2 shadow border-yellow-400 bg-yellow-50'
+            className='outline-none block w-full p-2 border-2 shadow border-yellow-400 bg-transparent'
           />
         </div>
         <div className='mb-4 text-left'>
@@ -67,7 +67,7 @@ const InputForm = () => {
             placeholder='Write details here'
             value={content}
             onChange={onChange}
-            className='outline-none block w-full border-2 p-2 shadow border-yellow-400 bg-yellow-50'
+            className='outline-none block w-full border-2 p-2 shadow border-yellow-400 bg-transparent'
           ></textarea>
         </div>
         <div className='mb-4 text-lg font-semibold'>
