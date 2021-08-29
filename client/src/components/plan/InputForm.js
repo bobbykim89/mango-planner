@@ -83,29 +83,26 @@ const InputForm = () => {
         </div>
         <div className='mb-4 text-lg font-semibold'>
           <label
-            htmlFor='personal_edit'
+            htmlFor='personal'
             className='text-yellow-600 dark:text-gray-200'
           >
             Personal{' '}
           </label>
           <input
             type='radio'
-            id='personal_edit'
+            id='personal'
             name='type'
             value='personal'
             checked={type === 'personal'}
             onChange={onChange}
             className='mr-6'
           />
-          <label
-            htmlFor='work_edit'
-            className='text-green-600 dark:text-green-200'
-          >
+          <label htmlFor='work' className='text-green-600 dark:text-green-200'>
             Work{' '}
           </label>
           <input
             type='radio'
-            id='work_edit'
+            id='work'
             name='type'
             value='work'
             checked={type === 'work'}
@@ -113,14 +110,14 @@ const InputForm = () => {
             className='mr-6'
           />
           <label
-            htmlFor='errand_edit'
+            htmlFor='errand'
             className='text-indigo-600 dark:text-indigo-300'
           >
             Errand{' '}
           </label>
           <input
             type='radio'
-            id='errand_edit'
+            id='errand'
             name='type'
             value='errand'
             checked={type === 'errand'}

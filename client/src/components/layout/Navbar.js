@@ -64,7 +64,7 @@ const Navbar = ({ title }) => {
   const [navBarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className='w-full top-0 md:sticky flex flex-wrap items-center bg-yellow-300 z-50 shadow-md dark:bg-gray-600'>
+    <nav className='w-full top-0 md:sticky flex flex-wrap items-center bg-yellow-300 z-50 shadow-md bg-opacity-80 dark:bg-opacity-95 dark:bg-gray-600'>
       <div className='container flex flex-wrap items-center py-2 align-middle justify-between'>
         <div className='flex flex-shrink-0 mr-6'>
           <Link to='/' onClick={clickHandler}>

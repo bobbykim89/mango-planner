@@ -16,21 +16,21 @@ const PlanItem = ({ plan }) => {
   const [currentPlan, setCurrentPlan] = useState({
     title: '',
     content: '',
-    complete: false,
     type: 'personal',
   });
 
   useEffect(() => {
     if (current !== null) {
-      setCurrentPlan(current);
+      setCurrentPlan(plan);
     } else {
       setCurrentPlan({
         title: '',
         content: '',
         type: 'personal',
       });
+      setToggleEdit(false);
     }
-  }, [planContext, current]);
+  }, [planContext, plan, current]);
 
   const [toggleEdit, setToggleEdit] = useState(false);
   const [details, setDetails] = useState(false);
@@ -82,11 +82,9 @@ const PlanItem = ({ plan }) => {
     if (!isAuthenticated) {
       setAlert('Please login!');
       clearCurrent();
-      setToggleEdit(!toggleEdit);
     } else if (user._id !== plan.author) {
       setAlert('Sorry You are not authorized to do so');
       clearCurrent();
-      setToggleEdit(!toggleEdit);
     } else {
       deletePlan(plan._id);
       clearCurrent();
@@ -104,11 +102,11 @@ const PlanItem = ({ plan }) => {
       clearCurrent();
       setToggleEdit(!toggleEdit);
     } else {
+      setCurrent(plan);
       updatePlan(currentPlan);
       setCurrentPlan({
         title: '',
         content: '',
-        complete: false,
         type: 'personal',
       });
       clearCurrent();
@@ -186,6 +184,7 @@ const PlanItem = ({ plan }) => {
               name='title'
               defaultValue={title}
               onChange={onChange}
+              onClick={() => setCurrent(plan)}
               required
               className='block w-full outline-none mb-4 bg-transparent pb-2 border-b-2 border-indigo-100 text-yellow-600 dark:text-white'
             />
@@ -194,18 +193,19 @@ const PlanItem = ({ plan }) => {
               rows='4'
               defaultValue={content}
               onChange={onChange}
+              onClick={() => setCurrent(plan)}
               className='block w-full outline-none bg-transparent p-2 border-b-2 mb-4 border-indigo-100 text-yellow-600 dark:text-white'
             />
             <div className='text-md font-semibold'>
               <label
-                htmlFor='personal'
+                htmlFor='personal_edit'
                 className='text-yellow-600 dark:text-gray-200'
               >
                 Personal{' '}
               </label>
               <input
                 type='radio'
-                id='personal'
+                id='personal_edit'
                 name='type'
                 value='personal'
                 checked={type === 'personal'}
@@ -213,14 +213,14 @@ const PlanItem = ({ plan }) => {
                 className='mr-6'
               />
               <label
-                htmlFor='work'
+                htmlFor='work_edit'
                 className='text-green-600 dark:text-green-200'
               >
                 Work{' '}
               </label>
               <input
                 type='radio'
-                id='work'
+                id='work_edit'
                 name='type'
                 value='work'
                 checked={type === 'work'}
@@ -228,14 +228,14 @@ const PlanItem = ({ plan }) => {
                 className='mr-6'
               />
               <label
-                htmlFor='errand'
+                htmlFor='errand_edit'
                 className='text-indigo-600 dark:text-indigo-300'
               >
                 Errand{' '}
               </label>
               <input
                 type='radio'
-                id='errand'
+                id='errand_edit'
                 name='type'
                 value='errand'
                 checked={type === 'errand'}
