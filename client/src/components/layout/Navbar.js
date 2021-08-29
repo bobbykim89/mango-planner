@@ -95,8 +95,9 @@ const Navbar = ({ title }) => {
             <div className='mr-4'>
               <Weather />
             </div>
-
-            <DarkMode />
+            <div onClick={() => setNavbarOpen(!navBarOpen)}>
+              <DarkMode />
+            </div>
           </div>
           {/* Auth Section */}
           <div className='flex flex-wrap pt-3 pb-2 lg:pb-1 lg:pt-1 justify-center'>
