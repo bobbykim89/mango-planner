@@ -91,7 +91,7 @@ const Navbar = ({ title }) => {
             (navBarOpen ? ' block' : ' hidden')
           }
         >
-          <div className='flex flex-wrap pt-2 lg:pt-0  mx-auto justify-center lg:justify-end'>
+          <div className='flex pt-2 lg:pt-0 mx-auto justify-center lg:justify-end'>
             <div className='mr-4 inline-block'>
               <Weather />
             </div>
@@ -101,10 +101,8 @@ const Navbar = ({ title }) => {
             >
               <DarkMode />
             </div>
-            <div>
-              <span className='hidden lg:inline-block pt-2 pb-2 text-lg text-red-500 align-middle mx-3 dark:text-yellow-400'>
-                |{' '}
-              </span>
+            <div className='hidden lg:inline-block pt-2 pb-2 text-lg text-red-500 align-middle mr-3 dark:text-yellow-400'>
+              <span>| </span>
             </div>
           </div>
           {/* Auth Section */}

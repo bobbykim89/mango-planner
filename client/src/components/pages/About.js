@@ -45,7 +45,7 @@ const About = () => {
                 <p className='text-md'>Made by: Bobby Kim</p>
               </div>
               <ul className='text-6xl flex flex-wrap justify-center'>
-                <li className='mx-2 hover:text-green-400 transition ease-in duration-150'>
+                <li className='mx-2 hover:text-red-500 dark:hover:text-yellow-400 transition ease-in duration-150'>
                   <a
                     href='https://github.com/bobbykim89'
                     target='_blank'
@@ -54,7 +54,7 @@ const About = () => {
                     <i className='fab fa-github-square' />
                   </a>
                 </li>
-                <li className='mx-2 hover:text-green-400 transition ease-in duration-150'>
+                <li className='mx-2 hover:text-red-500 dark:hover:text-yellow-400 transition ease-in duration-150'>
                   <a
                     href='https://www.linkedin.com/in/bobby-kim-9baa17165/'
                     target='_blank'
@@ -63,7 +63,7 @@ const About = () => {
                     <i className='fab fa-linkedin' />
                   </a>
                 </li>
-                <li className='mx-2 hover:text-green-400 transition ease-in duration-150'>
+                <li className='mx-2 hover:text-red-500 dark:hover:text-yellow-400 transition ease-in duration-150'>
                   <a
                     href='mailto:bobby.sihun.kim@gmail.com'
                     target='_blank'
