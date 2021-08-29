@@ -20,7 +20,7 @@ const PlanItem = ({ plan }) => {
   });
 
   useEffect(() => {
-    if (current !== null) {
+    if (current === plan) {
       setCurrentPlan(plan);
     } else {
       setCurrentPlan({
@@ -190,11 +190,10 @@ const PlanItem = ({ plan }) => {
             />
             <textarea
               name='content'
-              rows='4'
               defaultValue={content}
               onChange={onChange}
               onClick={() => setCurrent(plan)}
-              className='block w-full outline-none bg-transparent p-2 border-b-2 mb-4 border-indigo-100 text-yellow-600 dark:text-white'
+              className='block w-full outline-none bg-transparent p-2 border-b-2 mb-4 border-indigo-100 text-yellow-600 dark:text-white h-32 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300 overflow-y-scroll'
             />
             <div className='text-md font-semibold'>
               <label
