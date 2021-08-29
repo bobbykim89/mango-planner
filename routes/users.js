@@ -19,7 +19,7 @@ router.post(
     check('name', 'Please add Username').not().isEmpty(),
     check('email', 'Please include a valid email address')
       .isEmail()
-      .normalizeEmail(),
+      .normalizeEmail({ gmail_remove_dots: false }),
     check(
       'password',
       'Password must be greater than 8 characters and contain numbers, lowercase letters and uppercase letters'

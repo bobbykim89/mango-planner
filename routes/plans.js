@@ -11,7 +11,7 @@ const Auth = require('../middleware/Auth');
 // access Private
 router.get('/', Auth, async (req, res) => {
   try {
-    const plans = await Plan.find({ user: req.user.id });
+    const plans = await Plan.find({ author: req.user.id });
     res.json(plans);
   } catch (err) {
     console.err(err.message);
@@ -30,13 +30,14 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { title, content, complete } = req.body;
+    const { title, content, complete, type } = req.body;
 
     try {
       const newPlan = new Plan({
         title,
         content,
         complete,
+        type,
         author: req.user.id,
       });
       const plan = await newPlan.save();
@@ -96,15 +97,13 @@ router.put(
 // @desc  Delete plan
 // access Private
 router.delete('/:id', Auth, async (req, res) => {
-  const { id } = req.user;
-
   try {
     let plan = await Plan.findById(req.params.id);
     if (!plan) {
       return res.status(404).json({ msg: 'Plan not found :(' });
     }
     // Making sure user is authorized
-    if (plan.author.toString() !== id) {
+    if (plan.author.toString() !== req.user.id) {
       return res.status(401).json({ msg: 'Not Authorized' });
     }
     await Plan.findByIdAndRemove(req.params.id);

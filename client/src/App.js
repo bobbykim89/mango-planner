@@ -4,11 +4,13 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import './App.css';
 
 import Navbar from './components/layout/Navbar';
+import Alerts from './components/layout/Alerts';
 import Footer from './components/layout/footer';
 import About from './components/pages/About';
 import Home from './components/pages/Home';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
+import PrivateRoute from './utils/PrivateRoute';
 
 import AuthState from './context/auth/AuthContext';
 import AlertState from './context/alert/AlertContext';
@@ -35,8 +37,9 @@ function App() {
             <Router>
               <Fragment>
                 <Navbar />
+                <Alerts />
                 <Switch>
-                  <Route exact path='/' component={Home} />
+                  <PrivateRoute exact path='/' component={Home} />
                   <Route exact path='/login' component={Login} />
                   <Route exact path='/signup' component={Signup} />
                   <Route exact path='/about' component={About} />

@@ -1,10 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { PlanContext } from '../../context/plan/PlanContext';
+import { AuthContext } from '../../context/auth/AuthContext';
+import { AlertContext } from '../../context/alert/AlertContext';
 
 const PlanItem = ({ plan }) => {
   const planContext = useContext(PlanContext);
+  const authContext = useContext(AuthContext);
+  const alertContext = useContext(AlertContext);
+
   const { deletePlan, updatePlan, setCurrent, clearCurrent, current } =
     planContext;
+  const { isAuthenticated, user } = authContext;
+  const { setAlert } = alertContext;
+
   const [currentPlan, setCurrentPlan] = useState({
     title: '',
     content: '',
@@ -39,10 +47,20 @@ const PlanItem = ({ plan }) => {
   };
 
   const toggleComplete = (e) => {
-    setCurrent(plan);
-    plan.complete = !plan.complete;
-    updatePlan(plan);
-    clearCurrent();
+    if (!isAuthenticated) {
+      setAlert('Please login!');
+      clearCurrent();
+      setToggleEdit(!toggleEdit);
+    } else if (user._id !== plan.author) {
+      setAlert('Sorry You are not authorized to do so');
+      clearCurrent();
+      setToggleEdit(!toggleEdit);
+    } else {
+      setCurrent(plan);
+      plan.complete = !plan.complete;
+      updatePlan(plan);
+      clearCurrent();
+    }
   };
 
   const bgHandler = () => {
@@ -61,21 +79,41 @@ const PlanItem = ({ plan }) => {
   };
 
   const handleDelete = () => {
-    deletePlan(plan.id);
-    clearCurrent();
+    if (!isAuthenticated) {
+      setAlert('Please login!');
+      clearCurrent();
+      setToggleEdit(!toggleEdit);
+    } else if (user._id !== plan.author) {
+      setAlert('Sorry You are not authorized to do so');
+      clearCurrent();
+      setToggleEdit(!toggleEdit);
+    } else {
+      deletePlan(plan._id);
+      clearCurrent();
+    }
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    updatePlan(currentPlan);
-    setCurrentPlan({
-      title: '',
-      content: '',
-      complete: false,
-      type: 'personal',
-    });
-    clearCurrent();
-    setToggleEdit(!toggleEdit);
+    if (!isAuthenticated) {
+      setAlert('Please login!');
+      clearCurrent();
+      setToggleEdit(!toggleEdit);
+    } else if (user._id !== plan.author) {
+      setAlert('Sorry You are not authorized to do so');
+      clearCurrent();
+      setToggleEdit(!toggleEdit);
+    } else {
+      updatePlan(currentPlan);
+      setCurrentPlan({
+        title: '',
+        content: '',
+        complete: false,
+        type: 'personal',
+      });
+      clearCurrent();
+      setToggleEdit(!toggleEdit);
+    }
   };
 
   return (

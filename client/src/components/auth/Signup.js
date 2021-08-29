@@ -12,7 +12,7 @@ const Signup = (props) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      props.history.push('/gallery');
+      props.history.push('/');
     }
     if (
       error ===

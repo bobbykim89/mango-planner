@@ -1,9 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { PlanContext } from '../../context/plan/PlanContext';
+import { AuthContext } from '../../context/auth/AuthContext';
+import { AlertContext } from '../../context/alert/AlertContext';
 
 const InputForm = () => {
   const planContext = useContext(PlanContext);
+  const authContext = useContext(AuthContext);
+  const alertContext = useContext(AlertContext);
+
   const { addPlan } = planContext;
+  const { user } = authContext;
+  const { setAlert } = alertContext;
 
   const [plan, setPlan] = useState({
     title: '',
@@ -20,13 +27,17 @@ const InputForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    addPlan(plan);
-    setPlan({
-      title: '',
-      content: '',
-      complete: false,
-      type: 'personal',
-    });
+    if (!user) {
+      setAlert('Please login!');
+    } else {
+      addPlan(plan);
+      setPlan({
+        title: '',
+        content: '',
+        complete: false,
+        type: 'personal',
+      });
+    }
   };
   return (
     <section className='lg:sticky lg:top-24'>
@@ -121,7 +132,7 @@ const InputForm = () => {
           <input
             type='submit'
             value='Submit'
-            className='block w-full px-4 py-2 bg-yellow-500 hover:bg-yellow-400 text-lg text-white font-semibold tracking-wider shadow-lg dark:bg-gray-800 dark:hover:bg-gray-500'
+            className='block w-full px-4 py-2 bg-yellow-500 hover:bg-yellow-400 text-lg text-white font-semibold tracking-wider shadow-lg cursor-pointer dark:bg-gray-800 dark:hover:bg-gray-500'
           />
         </div>
       </form>

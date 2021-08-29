@@ -18,7 +18,7 @@ const PlanSchema = mongoose.Schema({
   },
   type: {
     type: String,
-    default: 'personal',
+    required: true,
   },
   date: {
     type: Date,

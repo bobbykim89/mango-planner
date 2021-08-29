@@ -8,6 +8,7 @@ export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 export const FILTER_PLANS = 'FILTER_PLANS';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
 export const PLAN_ERROR = 'PLAN_ERROR';
+export const CLEAR_PLANS = 'CLEAR_PLANS';
 
 // Auth Types
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
