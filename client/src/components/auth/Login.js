@@ -45,16 +45,16 @@ const Login = (props) => {
         <title>Login: Mango Planner</title>
         <meta name='description' content='Logging into Mango Planner!' />
       </Helmet>
-      <section className='bg-blue-200 py-20 min-h-85v'>
-        <div className='container w-11/12 md:w-1/3 bg-blue-400 mx-auto px-4 md:px-8 py-8 rounded shadow-lg'>
-          <h1 className='mx-auto text-4xl text-white font-bold text-center mb-4 tracking-wider'>
+      <section className='bg-red-50 py-20 min-h-85v dark:bg-gray-400'>
+        <div className='container w-11/12 md:w-1/3 bg-yellow-50 mx-auto px-4 md:px-8 py-8 rounded shadow-lg dark:bg-gray-600'>
+          <h1 className='mx-auto text-4xl text-red-500 font-bold text-center mb-4 tracking-wider dark:text-white'>
             Login
           </h1>
           <form onSubmit={onSubmit} className='flex flex-col'>
             <div className='mb-4'>
               <label
                 htmlFor='email'
-                className='text-white text-lg font-semibold'
+                className='text-yellow-600 dark:text-white text-lg font-semibold'
               >
                 Email Address
               </label>
@@ -65,13 +65,13 @@ const Login = (props) => {
                 value={email}
                 onChange={onChange}
                 required
-                className='block w-full p-2 border-2 border-indigo-400 outline-none'
+                className='block w-full p-2 border-2 border-yellow-400 outline-none bg-transparent dark:border-gray-300 text-yellow-600 dark:text-white'
               />
             </div>
             <div className='mb-6'>
               <label
                 htmlFor='password'
-                className='text-white text-lg font-semibold'
+                className='text-yellow-600 dark:text-white text-lg font-semibold'
               >
                 Password
               </label>
@@ -82,13 +82,13 @@ const Login = (props) => {
                 value={password}
                 onChange={onChange}
                 required
-                className='block w-full p-2 border-2 border-indigo-400 outline-none'
+                className='block w-full p-2 border-2 border-yellow-400 outline-none bg-transparent dark:border-gray-300 text-yellow-600 dark:text-white'
               />
             </div>
             <input
               type='submit'
               value='Login'
-              className='px-4 py-2 bg-indigo-700 hover:bg-indigo-600 text-lg text-white font-semibold tracking-wider shadow-md'
+              className='px-4 py-2 bg-yellow-500 hover:bg-yellow-400 text-lg text-white font-semibold tracking-wider shadow-md dark:bg-gray-800 dark:hover:bg-gray-500'
             />
           </form>
         </div>
