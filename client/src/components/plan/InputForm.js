@@ -73,12 +73,10 @@ const InputForm = () => {
           <textarea
             name='content'
             id='content'
-            cols='30'
-            rows='10'
             placeholder='Write details here'
             value={content}
             onChange={onChange}
-            className='outline-none block w-full border-2 p-2 shadow border-yellow-400 bg-transparent text-yellow-600 dark:border-gray-300 dark:text-white'
+            className='outline-none block w-full border-2 p-2 shadow border-yellow-400 bg-transparent text-yellow-600 dark:border-gray-300 dark:text-white h-32 lg:h-64 scrollbar-thin dark:scrollbar-thumb-gray-500 dark:scrollbar-track-gray-400 overflow-y-scroll scrollbar-thumb-yellow-300 scrollbar-track-yellow-200'
           ></textarea>
         </div>
         <div className='mb-4 text-lg font-semibold'>

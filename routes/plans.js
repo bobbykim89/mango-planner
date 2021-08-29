@@ -24,7 +24,7 @@ router.get('/', Auth, async (req, res) => {
 // @access  Private
 router.post(
   '/',
-  [Auth, [check('title', 'title is required').not().isEmpty()]],
+  [Auth, [check('title', 'title is required').not().isEmpty().trim().escape()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -54,16 +54,7 @@ router.post(
 // access Private
 router.put(
   '/:id',
-  [
-    Auth,
-    [
-      check('content', 'Please write some content')
-        .not()
-        .isEmpty()
-        .trim()
-        .escape(),
-    ],
-  ],
+  [Auth, [check('title', 'title is required').not().isEmpty().trim().escape()]],
   async (req, res) => {
     const { id } = req.user;
     const errors = validationResult(req);

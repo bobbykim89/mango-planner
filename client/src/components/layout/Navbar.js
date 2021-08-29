@@ -26,7 +26,9 @@ const Navbar = ({ title }) => {
   const authLinks = (
     <Fragment>
       <li className='inline-block text-red-500 align-middle text-lg mx-2 font-semibold dark:text-yellow-400'>
-        <span>Welcome! </span>
+        <span className='lg:pl-4 lg:border-l lg:border-red-500 lg:dark:border-yellow-400'>
+          Welcome!{' '}
+        </span>
         {user && user.name}
       </li>
       <li className='inline-block text-red-500 align-middle text-xl mx-2 hover:text-white transition ease-in duration-150 dark:text-yellow-400 dark:hover:text-white'>
@@ -47,7 +49,7 @@ const Navbar = ({ title }) => {
         onClick={clickHandler}
         className='inline-block text-red-500 align-middle text-xl mx-3 hover:text-white transition ease-in duration-150 dark:text-yellow-400 dark:hover:text-white'
       >
-        <i className='fas fa-sign-in-alt' />
+        <i className='fas fa-sign-in-alt lg:pl-4 lg:border-l lg:border-red-500 lg:dark:border-yellow-400' />
         <span className='ml-2 text-lg font-semibold'>Login</span>
       </Link>
       <Link
@@ -87,11 +89,11 @@ const Navbar = ({ title }) => {
         </div>
         <div
           className={
-            'w-full lg:flex lg:w-auto flex-wrap items-center' +
+            'flex-grow w-full lg:flex lg:w-auto items-center' +
             (navBarOpen ? ' block' : ' hidden')
           }
         >
-          <div className='flex pt-2 lg:pt-0 mx-auto justify-center lg:justify-end'>
+          <div className='flex pt-2 lg:pt-0 mx-auto justify-center'>
             <div className='mr-4 inline-block'>
               <Weather />
             </div>
@@ -100,9 +102,6 @@ const Navbar = ({ title }) => {
               onClick={() => setNavbarOpen(!navBarOpen)}
             >
               <DarkMode />
-            </div>
-            <div className='hidden lg:inline-block pt-2 pb-2 text-lg text-red-500 align-middle mr-3 dark:text-yellow-400'>
-              <span>| </span>
             </div>
           </div>
           {/* Auth Section */}

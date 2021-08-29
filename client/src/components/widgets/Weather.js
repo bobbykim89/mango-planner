@@ -8,8 +8,7 @@ const Weather = () => {
     temperature: '',
   });
   const { lat, lon } = coordinate;
-
-  const API_KEY = 'b87e6baf25314701a619bc852c84fe30';
+  const API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
 
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
 

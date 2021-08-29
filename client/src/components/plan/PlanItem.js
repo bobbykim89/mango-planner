@@ -38,6 +38,7 @@ const PlanItem = ({ plan }) => {
   const { title, content, type } = currentPlan;
 
   const handleToggler = () => {
+    clearCurrent();
     setCurrent(plan);
     setToggleEdit(!toggleEdit);
   };
@@ -193,18 +194,18 @@ const PlanItem = ({ plan }) => {
               defaultValue={content}
               onChange={onChange}
               onClick={() => setCurrent(plan)}
-              className='block w-full outline-none bg-transparent p-2 border-b-2 mb-4 border-indigo-100 text-yellow-600 dark:text-white h-32 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300 overflow-y-scroll'
+              className='block w-full outline-none bg-transparent p-2 border-b-2 mb-4 border-indigo-100 text-yellow-600 dark:text-white h-32 scrollbar-thin dark:scrollbar-thumb-gray-500 dark:scrollbar-track-gray-400 overflow-y-scroll scrollbar-thumb-yellow-300 scrollbar-track-yellow-200'
             />
             <div className='text-md font-semibold'>
               <label
-                htmlFor='personal_edit'
+                htmlFor={`${plan._id}_personal`}
                 className='text-yellow-600 dark:text-gray-200'
               >
                 Personal{' '}
               </label>
               <input
                 type='radio'
-                id='personal_edit'
+                id={`${plan._id}_personal`}
                 name='type'
                 value='personal'
                 checked={type === 'personal'}
@@ -212,14 +213,14 @@ const PlanItem = ({ plan }) => {
                 className='mr-6'
               />
               <label
-                htmlFor='work_edit'
+                htmlFor={`${plan._id}_work`}
                 className='text-green-600 dark:text-green-200'
               >
                 Work{' '}
               </label>
               <input
                 type='radio'
-                id='work_edit'
+                id={`${plan._id}_work`}
                 name='type'
                 value='work'
                 checked={type === 'work'}
@@ -227,14 +228,14 @@ const PlanItem = ({ plan }) => {
                 className='mr-6'
               />
               <label
-                htmlFor='errand_edit'
+                htmlFor={`${plan._id}_errand`}
                 className='text-indigo-600 dark:text-indigo-300'
               >
                 Errand{' '}
               </label>
               <input
                 type='radio'
-                id='errand_edit'
+                id={`${plan._id}_errand`}
                 name='type'
                 value='errand'
                 checked={type === 'errand'}

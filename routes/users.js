@@ -23,7 +23,12 @@ router.post(
     check(
       'password',
       'Password must be greater than 8 characters and contain numbers, lowercase letters and uppercase letters'
-    ),
+    ).isStrongPassword({
+      minLength: 8,
+      minLowercase: 1,
+      minNumbers: 1,
+      minUppercase: 1,
+    }),
   ],
   async (req, res) => {
     const errors = validationResult(req);
