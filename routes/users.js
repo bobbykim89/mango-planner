@@ -30,7 +30,7 @@ router.post(
     if (!errors.isEmpty) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { name, email, password, darkMode } = req.body;
+    const { name, email, password } = req.body;
 
     try {
       let user = await User.findOne({ email });
@@ -51,7 +51,6 @@ router.post(
       const payload = {
         user: {
           id: user.id,
-          darkMode: user.darkMode,
         },
       };
       jwt.sign(
@@ -71,32 +70,5 @@ router.post(
     }
   }
 );
-
-// @route   PUT api/users/:id
-// @ desc   Update user info (darkmode pref)
-// access   Private
-router.put('/:id', Auth, async (req, res) => {
-  const { id } = req.user;
-
-  try {
-    let user = await User.findById(req.params.id);
-    if (!user) {
-      return res.status(404).json({ msg: 'User does not exist :(' });
-    }
-    // Making sure user is authorized
-    if (user.id.toString() !== id) {
-      return res.status(401).json({ msg: 'Not Authorized' });
-    }
-    user = await User.findByIdAndUpdate(id, req.body, {
-      new: true,
-    });
-    res.json(user);
-    console.log(req.params);
-    console.log(req.body);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
-});
 
 module.exports = router;

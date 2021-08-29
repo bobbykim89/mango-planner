@@ -56,11 +56,9 @@ const Weather = () => {
           className='object-center object-cover'
         />
       </div>
-      <div className='row-span-1 inline-block align-middle text-center'>
-        <div className=' text-red-500 text-sm font-semibold '>{city}</div>
-        <div className=' text-red-500 text-sm font-semibold '>
-          {temperature} &deg;F
-        </div>
+      <div className='row-span-1 inline-block align-middle text-center text-red-500 text-sm font-semibold dark:text-yellow-400'>
+        <div>{city}</div>
+        <div>{temperature} &deg;F</div>
       </div>
     </section>
   );

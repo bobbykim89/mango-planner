@@ -16,7 +16,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section className='bg-red-50 min-h-85v'>
+    <section className='bg-red-50 min-h-85v dark:bg-gray-400'>
       <div className='w-full lg:w-2/3 grid grid-flow-row lg:grid-cols-2 gap-4 py-12 mx-auto'>
         <div className='text-center'>
           <InputForm />

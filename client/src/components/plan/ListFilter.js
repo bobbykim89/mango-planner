@@ -21,13 +21,13 @@ const ListFilter = () => {
     }
   };
   return (
-    <form className='rounded-md px-4 py-4 bg-yellow-50 shadow-lg mb-4'>
+    <form className='rounded-md px-4 py-4 bg-yellow-50 shadow-lg mb-4 dark:bg-gray-600'>
       <input
         type='text'
         ref={text}
         placeholder='Search'
         onChange={onChange}
-        className='outline-none block w-full p-2 border-2 bg-transparent border-2 shadow border-yellow-400'
+        className='outline-none block w-full p-2 border-2 bg-transparent border-2 shadow border-yellow-400 dark:border-gray-300 dark:focus:text-white'
       />
     </form>
   );
