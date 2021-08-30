@@ -29,6 +29,7 @@ const styleSrcUrls = [
 const connectSrcUrls = ['https://api.openweathermap.org'];
 const defaultSrcUrls = ['https://mangoplanner.herokuapp.com/'];
 const fontSrcUrls = [
+  'https://cdnjs.cloudflare.com',
   'https://fonts.googleapis.com',
   'https://fonts.gstatic.com',
 ];
