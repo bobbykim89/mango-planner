@@ -51,7 +51,7 @@ const Weather = () => {
 
   const { city, weather, temperature } = data;
 
-  const iconUrl = `http://openweathermap.org/img/wn/${weather}@2x.png`;
+  const iconUrl = `https://openweathermap.org/img/wn/${weather}@2x.png`;
 
   return (
     <section className='grid grid-cols-2 mx-auto items-center'>
