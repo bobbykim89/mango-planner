@@ -18,19 +18,16 @@ app.use(helmet());
 
 const scriptSrcUrls = [
   'https://cdn.jsdelivr.net',
-  'https://kit.fontawesome.com',
   'https://cdnjs.cloudflare.com',
   'https://cdn.jsdelivr.net',
 ];
 const styleSrcUrls = [
-  'https://kit-free.fontawesome.com',
   'https://cdn.jsdelivr.net',
-  'https://api.tiles.mapbox.com',
+  'https://cdnjs.cloudflare.com',
   'https://fonts.googleapis.com',
-  'https://use.fontawesome.com',
 ];
-const connectSrcUrls = [];
-const defaultSrcUrls = [];
+const connectSrcUrls = ['https://api.openweathermap.org'];
+const defaultSrcUrls = ['https://mangoplanner.herokuapp.com/'];
 const fontSrcUrls = [
   'https://fonts.googleapis.com',
   'https://fonts.gstatic.com',
@@ -45,7 +42,13 @@ app.use(
       workerSrc: ["'self'", 'blob:'],
       childSrc: ['blob:'],
       objectSrc: [],
-      imgSrc: ["'self'", 'blob:', 'data:', 'https://images.unsplash.com'],
+      imgSrc: [
+        "'self'",
+        'blob:',
+        'data:',
+        'https://openweathermap.org',
+        'https://images.unsplash.com',
+      ],
       fontSrc: ["'self'", ...fontSrcUrls],
     },
   })
