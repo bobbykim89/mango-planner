@@ -26,23 +26,23 @@ const About = () => {
           <div className='inline-block items-center grid grid-flow-row lg:grid-cols-2'>
             {/* Left */}
             <div
-              className='inline-block flex flex-wrap mx-auto justify-center lg:justify-start'
+              className='inline-block py-20 justify-center'
               data-aos='flip-left'
             >
               <img
                 src={about}
                 alt='bird on monitor'
-                className='inline-block rounded-full my-8 w-2/3 shadow-md'
+                className='w-2/3 mx-auto rounded-full border-4 border-white shadow-lg'
               />
             </div>
             <div className='flex flex-col inline-block px-2 mx-auto'>
               <h2 className='text-2xl md:text-3xl tracking-wider text-center'>
                 About Mango Planner
               </h2>
-              <div className='mb-4'>
-                <p className='text-md'>Planner webapp in mango color theme</p>
-                <p className='text-md'>Version: 0.1.0(Beta)</p>
-                <p className='text-md'>Made by: Bobby Kim</p>
+              <div className='mb-4 text-md'>
+                <p>Planner webapp in mango color theme</p>
+                <p>Version: 0.1.1(Beta)</p>
+                <p>Made by: Bobby Kim</p>
               </div>
               <ul className='text-6xl flex flex-wrap justify-center'>
                 <li className='mx-2 hover:text-red-500 dark:hover:text-yellow-400 transition ease-in duration-150'>

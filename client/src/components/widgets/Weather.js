@@ -10,7 +10,10 @@ const Weather = () => {
 
   const { lat, lon } = coordinate;
 
-  const API_KEY = 'b87e6baf25314701a619bc852c84fe30';
+  // const API_KEY = 'b87e6baf25314701a619bc852c84fe30';
+
+  const API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
+
   // if (process.env.NODE_ENV !== 'production') {
   //   API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
   // } else {
