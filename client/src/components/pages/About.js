@@ -1,17 +1,8 @@
-import React, { Fragment } from 'react';
-import { Helmet } from 'react-helmet-async';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import about from './partials/about.jpg';
+import React, { Fragment } from 'react'
+import { Helmet } from 'react-helmet-async'
+import about from './partials/about.jpg'
 
 const About = () => {
-  AOS.init({
-    delay: 300,
-    duration: 1400,
-    once: false,
-    easing: 'ease',
-  });
-
   return (
     <Fragment>
       <Helmet>
@@ -25,10 +16,7 @@ const About = () => {
         <div className='lg:w-2/3 mx-auto px-4'>
           <div className='inline-block items-center grid grid-flow-row lg:grid-cols-2'>
             {/* Left */}
-            <div
-              className='inline-block py-20 justify-center'
-              data-aos='flip-left'
-            >
+            <div className='inline-block py-20 justify-center'>
               <img
                 src={about}
                 alt='bird on monitor'
@@ -78,7 +66,7 @@ const About = () => {
         </div>
       </section>
     </Fragment>
-  );
-};
+  )
+}
 
-export default About;
+export default About
