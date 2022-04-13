@@ -10,7 +10,6 @@ import About from './components/pages/About'
 import Home from './components/pages/Home'
 import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
-import PrivateRoute from './utils/PrivateRoute'
 
 import AuthState from './context/auth/AuthContext'
 import AlertState from './context/alert/AlertContext'
@@ -39,7 +38,6 @@ function App() {
                 <Navbar />
                 <Alerts />
                 <Routes>
-                  {/* <PrivateRoute exact path='/' component={Home} /> */}
                   <Route exact path='/' element={<Home />} />
                   <Route exact path='/login' element={<Login />} />
                   <Route exact path='/signup' element={<Signup />} />

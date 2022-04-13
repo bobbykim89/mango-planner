@@ -9,7 +9,7 @@ import {
   PLAN_ERROR,
   SET_CURRENT,
   UPDATE_PLAN,
-} from '../types';
+} from '../types'
 
 const planReducer = (state, action) => {
   switch (action.type) {
@@ -18,13 +18,13 @@ const planReducer = (state, action) => {
         ...state,
         plans: action.payload,
         loading: false,
-      };
+      }
     case ADD_PLAN:
       return {
         ...state,
-        plans: [...state.plans, action.payload],
+        plans: [action.payload, ...state.plans],
         loading: false,
-      };
+      }
     case UPDATE_PLAN:
       return {
         ...state,
@@ -32,13 +32,13 @@ const planReducer = (state, action) => {
           plan._id === action.payload._id ? action.payload : plan
         ),
         loading: false,
-      };
+      }
     case DELETE_PLAN:
       return {
         ...state,
         plans: state.plans.filter((plan) => plan._id !== action.payload),
         loading: false,
-      };
+      }
     case CLEAR_PLANS:
       return {
         ...state,
@@ -46,38 +46,38 @@ const planReducer = (state, action) => {
         filtered: null,
         error: null,
         current: null,
-      };
+      }
     case SET_CURRENT:
       return {
         ...state,
         current: action.payload,
-      };
+      }
     case CLEAR_CURRENT:
       return {
         ...state,
         current: null,
-      };
+      }
     case FILTER_PLANS:
       return {
         ...state,
         filtered: state.plans.filter((plan) => {
-          const regex = new RegExp(`${action.payload}`, 'gi');
-          return plan.title.match(regex) || plan.content.match(regex);
+          const regex = new RegExp(`${action.payload}`, 'gi')
+          return plan.title.match(regex) || plan.content.match(regex)
         }),
-      };
+      }
     case CLEAR_FILTER:
       return {
         ...state,
         filtered: null,
-      };
+      }
     case PLAN_ERROR:
       return {
         ...state,
         error: action.payload,
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default planReducer;
+export default planReducer
