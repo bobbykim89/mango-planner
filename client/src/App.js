@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
+import Cookies from 'js-cookie'
 import './App.css'
 
 import Navbar from './components/layout/Navbar'
@@ -16,9 +17,10 @@ import AlertState from './context/alert/AlertContext'
 import PlanState from './context/plan/PlanContext'
 import setAuthToken from './utils/setAuthToken'
 
-if (localStorage.token) {
-  setAuthToken(localStorage.token)
-}
+// const token = Cookies.get('token')
+// if (token) {
+//   setAuthToken(token)
+// }
 
 function App() {
   return (

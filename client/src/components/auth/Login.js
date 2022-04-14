@@ -13,7 +13,6 @@ const Login = (props) => {
     authContext
 
   useEffect(() => {
-    loadUser()
     if (error === 'Invalid Credentials') {
       setAlert(error)
       clearErrors()

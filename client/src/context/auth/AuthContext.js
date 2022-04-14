@@ -1,5 +1,6 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useEffect, useReducer } from 'react'
 import axios from 'axios'
+import Cookies from 'js-cookie'
 import authReducer from './authReducer'
 import setAuthToken from '../../utils/setAuthToken'
 import {
@@ -17,26 +18,39 @@ export const AuthContext = createContext()
 
 const AuthState = (props) => {
   const initialState = {
-    token: localStorage.getItem('token'),
+    token: Cookies.get('token') || null,
     isAuthenticated: null,
     loading: true,
     user: null,
     error: null,
   }
 
+  const authToken = Cookies.get('token')
+
+  useEffect(() => {
+    if (authToken !== null) {
+      setAuthToken(authToken)
+      loadUser()
+    } else {
+      initialState.loading = false
+    }
+
+    // eslint-disable-next-line
+  }, [authToken])
+
   const [state, dispatch] = useReducer(authReducer, initialState)
 
   // Load User
   const loadUser = async () => {
     // Load token into global headers
-    if (localStorage.token) {
-      setAuthToken(localStorage.token)
-    }
     try {
       const res = await axios.get('/api/auth')
       dispatch({ type: USER_LOADED, payload: res.data })
+      console.log(res.data)
     } catch (err) {
       dispatch({ type: AUTH_ERROR })
+      console.log('load user error')
+      // Cookies.remove('token')
     }
   }
 
@@ -60,6 +74,7 @@ const AuthState = (props) => {
         type: REGISTER_FAIL,
         payload: err.response.data.msg,
       })
+      Cookies.remove('token')
     }
   }
 
@@ -83,11 +98,16 @@ const AuthState = (props) => {
         type: LOGIN_FAIL,
         payload: err.response.data.msg,
       })
+      console.log('login error')
+      Cookies.remove('token')
     }
   }
 
   // Logout
-  const logout = () => dispatch({ type: LOGOUT })
+  const logout = () => {
+    dispatch({ type: LOGOUT })
+    Cookies.remove('token')
+  }
 
   // Clear Errors
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS })

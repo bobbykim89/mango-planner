@@ -4,16 +4,15 @@ import { PlanContext } from '../../context/plan/PlanContext'
 import { AuthContext } from '../../context/auth/AuthContext'
 import InputForm from '../plan/InputForm'
 import PlanItem from '../plan/PlanItem'
-import ListFilter from '../plan/ListFilter'
-import Spinner from '../layout/Spinner'
+import ListFilter from 'components/plan/ListFilter'
+import Spinner from 'components/layout/Spinner'
 
 const Home = () => {
   const planContext = useContext(PlanContext)
-  const { loadUser, isAuthenticated } = useContext(AuthContext)
+  const { isAuthenticated, loading: authLoading } = useContext(AuthContext)
   const { plans, filtered, getPlans, loading } = planContext
 
   useEffect(() => {
-    loadUser()
     getPlans()
     // eslint-disable-next-line
   }, [])
@@ -24,7 +23,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      {!isAuthenticated && !useContext(AuthContext).loading ? (
+      {!isAuthenticated && !authLoading ? (
         <Navigate to='/login' />
       ) : (
         <section className='bg-red-50 min-h-85v dark:bg-gray-500'>
