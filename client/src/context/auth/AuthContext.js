@@ -49,8 +49,6 @@ const AuthState = (props) => {
       console.log(res.data)
     } catch (err) {
       dispatch({ type: AUTH_ERROR })
-      console.log('load user error')
-      // Cookies.remove('token')
     }
   }
 

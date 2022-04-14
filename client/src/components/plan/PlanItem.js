@@ -1,119 +1,127 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { PlanContext } from '../../context/plan/PlanContext';
-import { AuthContext } from '../../context/auth/AuthContext';
-import { AlertContext } from '../../context/alert/AlertContext';
+import React, { useContext, useEffect, useState } from 'react'
+import { PlanContext } from '../../context/plan/PlanContext'
+import { AuthContext } from '../../context/auth/AuthContext'
+import { AlertContext } from '../../context/alert/AlertContext'
 
 const PlanItem = ({ plan }) => {
-  const planContext = useContext(PlanContext);
-  const authContext = useContext(AuthContext);
-  const alertContext = useContext(AlertContext);
+  const planContext = useContext(PlanContext)
+  const authContext = useContext(AuthContext)
+  const alertContext = useContext(AlertContext)
 
   const { deletePlan, updatePlan, setCurrent, clearCurrent, current } =
-    planContext;
-  const { isAuthenticated, user } = authContext;
-  const { setAlert } = alertContext;
+    planContext
+  const { isAuthenticated, user } = authContext
+  const { setAlert } = alertContext
 
   const [currentPlan, setCurrentPlan] = useState({
     title: '',
     content: '',
     type: 'personal',
-  });
+  })
 
   useEffect(() => {
     if (current === plan) {
-      setCurrentPlan(plan);
+      setCurrentPlan(plan)
     } else {
       setCurrentPlan({
         title: '',
         content: '',
         type: 'personal',
-      });
-      setToggleEdit(false);
+      })
+      setToggleEdit(false)
     }
-  }, [planContext, plan, current]);
+  }, [planContext, plan, current])
 
-  const [toggleEdit, setToggleEdit] = useState(false);
-  const [details, setDetails] = useState(false);
+  const [toggleEdit, setToggleEdit] = useState(false)
+  const [details, setDetails] = useState(false)
 
-  const { title, content, type } = currentPlan;
+  const { title, content, type } = currentPlan
 
   const handleToggler = () => {
-    clearCurrent();
-    setCurrent(plan);
-    setToggleEdit(!toggleEdit);
-  };
+    clearCurrent()
+    setCurrent(plan)
+    setToggleEdit(!toggleEdit)
+  }
 
   const onChange = (e) => {
-    setCurrentPlan({ ...currentPlan, [e.target.name]: e.target.value });
-  };
+    setCurrentPlan({ ...currentPlan, [e.target.name]: e.target.value })
+  }
 
   const toggleComplete = (e) => {
     if (!isAuthenticated) {
-      setAlert('Please login!');
-      clearCurrent();
-      setToggleEdit(!toggleEdit);
+      setAlert('Please login!')
+      clearCurrent()
+      setToggleEdit(!toggleEdit)
     } else if (user._id !== plan.author) {
-      setAlert('Sorry You are not authorized to do so');
-      clearCurrent();
-      setToggleEdit(!toggleEdit);
+      setAlert('Sorry You are not authorized to do so')
+      clearCurrent()
+      setToggleEdit(!toggleEdit)
     } else {
-      setCurrent(plan);
-      plan.complete = !plan.complete;
-      updatePlan(plan);
-      clearCurrent();
+      setCurrent(plan)
+      plan.complete = !plan.complete
+      updatePlan(plan)
+      clearCurrent()
     }
-  };
+  }
 
   const bgHandler = () => {
     if (plan.type === 'personal') {
-      return ' bg-yellow-50 dark:bg-gray-600';
+      return ' bg-yellow-50 dark:bg-gray-600'
     } else if (plan.type === 'work') {
-      return ' bg-green-50 dark:bg-green-900';
+      return ' bg-green-50 dark:bg-green-900'
     } else {
-      return ' bg-indigo-50 dark:bg-indigo-900';
+      return ' bg-indigo-50 dark:bg-indigo-900'
     }
-  };
+  }
 
   const onCancelEdit = (e) => {
-    setToggleEdit(!toggleEdit);
-    clearCurrent();
-  };
+    setToggleEdit(!toggleEdit)
+    clearCurrent()
+  }
 
   const handleDelete = () => {
     if (!isAuthenticated) {
-      setAlert('Please login!');
-      clearCurrent();
+      setAlert('Please login!')
+      clearCurrent()
     } else if (user._id !== plan.author) {
-      setAlert('Sorry You are not authorized to do so');
-      clearCurrent();
+      setAlert('Sorry You are not authorized to do so')
+      clearCurrent()
     } else {
-      deletePlan(plan._id);
-      clearCurrent();
+      if (
+        window.confirm(
+          'This will permanently delete this item. Please confirm to proceed'
+        )
+      ) {
+        deletePlan(plan._id)
+      }
+      clearCurrent()
     }
-  };
+  }
 
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (!isAuthenticated) {
-      setAlert('Please login!');
-      clearCurrent();
-      setToggleEdit(!toggleEdit);
+      setAlert('Please login!')
+      clearCurrent()
+      setToggleEdit(!toggleEdit)
     } else if (user._id !== plan.author) {
-      setAlert('Sorry You are not authorized to do so');
-      clearCurrent();
-      setToggleEdit(!toggleEdit);
+      setAlert('Sorry You are not authorized to do so')
+      clearCurrent()
+      setToggleEdit(!toggleEdit)
     } else {
-      setCurrent(plan);
-      updatePlan(currentPlan);
+      setCurrent(plan)
+      if (window.confirm('Are you sure you want to update this?')) {
+        updatePlan(currentPlan)
+      }
       setCurrentPlan({
         title: '',
         content: '',
         type: 'personal',
-      });
-      clearCurrent();
-      setToggleEdit(!toggleEdit);
+      })
+      clearCurrent()
+      setToggleEdit(!toggleEdit)
     }
-  };
+  }
 
   return (
     <section
@@ -258,7 +266,7 @@ const PlanItem = ({ plan }) => {
         </form>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default PlanItem;
+export default PlanItem
