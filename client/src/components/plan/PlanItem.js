@@ -140,8 +140,8 @@ const PlanItem = ({ plan }) => {
           </div>
           <div
             className={
-              'text-yellow-600 text-md text-left whitespace-pre-line dark:text-white' +
-              (details ? '' : ' hidden')
+              'text-yellow-600 text-md text-left whitespace-pre-line dark:text-white transition-all duration-300 ease-in overflow-hidden ' +
+              (details ? 'h-full' : 'h-0')
             }
           >
             <span>{plan.content}</span>
@@ -178,9 +178,17 @@ const PlanItem = ({ plan }) => {
           className='col-span-6 cursor-pointer '
           onClick={() => setDetails(!details)}
         >
-          <span className='material-icons text-yellow-600 hover:text-yellow-400 dark:text-gray-300 dark:hover:text-white '>
-            {details ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
+          <span
+            className={
+              'material-icons text-yellow-600 hover:text-yellow-400 dark:text-gray-300 dark:hover:text-white transition-all duration-300 ease-in ' +
+              (details ? 'rotate-0' : 'rotate-180')
+            }
+          >
+            keyboard_arrow_up
           </span>
+          {/* <span className='material-icons text-yellow-600 hover:text-yellow-400 dark:text-gray-300 dark:hover:text-white '>
+            {details ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
+          </span> */}
         </div>
       </div>
 
