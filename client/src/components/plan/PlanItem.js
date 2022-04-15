@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { PlanContext } from '../../context/plan/PlanContext'
-import { AuthContext } from '../../context/auth/AuthContext'
-import { AlertContext } from '../../context/alert/AlertContext'
+import { PlanContext } from 'context/plan/PlanContext'
+import { AuthContext } from 'context/auth/AuthContext'
+import { AlertContext } from 'context/alert/AlertContext'
 
 const PlanItem = ({ plan }) => {
   const planContext = useContext(PlanContext)
@@ -66,7 +66,7 @@ const PlanItem = ({ plan }) => {
 
   const bgHandler = () => {
     if (plan.type === 'personal') {
-      return ' bg-yellow-50 dark:bg-gray-600'
+      return ' bg-yellow-50 dark:bg-gray-700'
     } else if (plan.type === 'work') {
       return ' bg-green-50 dark:bg-green-900'
     } else {
@@ -126,7 +126,7 @@ const PlanItem = ({ plan }) => {
   return (
     <section
       className={
-        'rounded-md px-4 pt-4 md:px-8 md:px-8 shadow-lg mb-4' +
+        'rounded-md mx-2 md:mx-0 px-4 pt-4 md:px-8 md:px-8 shadow-lg mb-4' +
         bgHandler() +
         (plan.complete
           ? ' border-l-4 border-green-600 dark:border-green-300'

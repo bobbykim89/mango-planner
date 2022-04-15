@@ -1,9 +1,9 @@
 import React, { Fragment, useContext, useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
-import { PlanContext } from '../../context/plan/PlanContext'
-import { AuthContext } from '../../context/auth/AuthContext'
-import InputForm from '../plan/InputForm'
-import PlanItem from '../plan/PlanItem'
+import { PlanContext } from 'context/plan/PlanContext'
+import { AuthContext } from 'context/auth/AuthContext'
+import InputForm from 'components/plan/InputForm'
+import PlanItem from 'components/plan/PlanItem'
 import ListFilter from 'components/plan/ListFilter'
 import Spinner from 'components/layout/Spinner'
 
@@ -26,7 +26,7 @@ const Home = () => {
       {!isAuthenticated && !authLoading ? (
         <Navigate to='/login' />
       ) : (
-        <section className='bg-red-50 min-h-85v dark:bg-gray-500'>
+        <section className='bg-red-50 min-h-85v dark:bg-gray-600'>
           <div className='w-full lg:w-2/3 grid grid-flow-row lg:grid-cols-2 gap-4 py-12 mx-auto'>
             <div className='text-center'>
               <InputForm />

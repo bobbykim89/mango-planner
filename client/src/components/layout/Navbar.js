@@ -1,27 +1,27 @@
-import React, { Fragment, useContext, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import Hamburger from 'hamburger-react';
-import logo from './logo.png';
-import Weather from '../widgets/Weather';
+import React, { Fragment, useContext, useState } from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import Hamburger from 'hamburger-react'
+import Weather from 'components/widgets/Weather'
+import DarkMode from 'components/widgets/DarkMode'
 
-import { AuthContext } from '../../context/auth/AuthContext';
-import DarkMode from '../widgets/DarkMode';
+import { AuthContext } from 'context/auth/AuthContext'
+import logo from 'assets/imgs/logo.png'
 
 const Navbar = ({ title }) => {
-  const authContext = useContext(AuthContext);
+  const authContext = useContext(AuthContext)
 
-  const { isAuthenticated, logout, user } = authContext;
+  const { isAuthenticated, logout, user } = authContext
 
   const onLogout = () => {
-    logout();
-    setNavbarOpen(false);
-  };
+    logout()
+    setNavbarOpen(false)
+  }
 
   const clickHandler = () => {
-    setNavbarOpen(false);
+    setNavbarOpen(false)
     // clearCurrent();
-  };
+  }
 
   const authLinks = (
     <Fragment>
@@ -40,7 +40,7 @@ const Navbar = ({ title }) => {
         </a>
       </li>
     </Fragment>
-  );
+  )
 
   const guestLinks = (
     <Fragment>
@@ -61,12 +61,12 @@ const Navbar = ({ title }) => {
         <span className='ml-2 text-lg font-semibold'>Signup</span>
       </Link>
     </Fragment>
-  );
+  )
 
-  const [navBarOpen, setNavbarOpen] = useState(false);
+  const [navBarOpen, setNavbarOpen] = useState(false)
 
   return (
-    <nav className='w-full top-0 md:sticky flex flex-wrap items-center bg-yellow-300 z-50 shadow-md bg-opacity-80 dark:bg-opacity-95 dark:bg-gray-600'>
+    <nav className='w-full top-0 md:sticky flex flex-wrap items-center bg-yellow-300 z-50 shadow-md bg-opacity-80 dark:bg-opacity-95 dark:bg-gray-700'>
       <div className='container flex flex-wrap items-center py-2 align-middle justify-between'>
         <div className='flex flex-shrink-0 mr-6'>
           <Link to='/' onClick={clickHandler}>
@@ -111,15 +111,15 @@ const Navbar = ({ title }) => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
-};
+}
 
 Navbar.defaultProps = {
   title: 'Mango Planner',
-};
+}
 
-export default Navbar;
+export default Navbar

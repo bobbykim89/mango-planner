@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet-async'
-import about from './partials/about.jpg'
+import about from 'assets/imgs/about.jpg'
 
 const About = () => {
   return (

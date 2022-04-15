@@ -1,61 +1,61 @@
-import React, { useContext, useState, useEffect, Fragment } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { AlertContext } from '../../context/alert/AlertContext';
-import { AuthContext } from '../../context/auth/AuthContext';
+import React, { useContext, useState, useEffect, Fragment } from 'react'
+import { Helmet } from 'react-helmet-async'
+import { AlertContext } from 'context/alert/AlertContext'
+import { AuthContext } from 'context/auth/AuthContext'
 
 const Signup = (props) => {
-  const alertContext = useContext(AlertContext);
-  const authContext = useContext(AuthContext);
+  const alertContext = useContext(AlertContext)
+  const authContext = useContext(AuthContext)
 
-  const { setAlert } = alertContext;
-  const { register, error, clearErrors, isAuthenticated } = authContext;
+  const { setAlert } = alertContext
+  const { register, error, clearErrors, isAuthenticated } = authContext
 
   useEffect(() => {
     if (isAuthenticated) {
-      props.history.push('/');
+      props.history.push('/')
     }
     if (
       error ===
       'Following email address is already in use, Please use different Email'
     ) {
-      setAlert(error);
-      clearErrors();
+      setAlert(error)
+      clearErrors()
     }
     // eslint-disable-next-line
-  }, [error, isAuthenticated, props.history]);
+  }, [error, isAuthenticated, props.history])
 
   const [user, setUser] = useState({
     name: '',
     email: '',
     password: '',
     password2: '',
-  });
-  const [agree, setAgree] = useState(false);
+  })
+  const [agree, setAgree] = useState(false)
 
-  const { name, email, password, password2 } = user;
+  const { name, email, password, password2 } = user
 
-  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
+  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value })
 
   const handleCheckBox = () => {
-    setAgree(!agree);
-  };
+    setAgree(!agree)
+  }
 
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (name === '' || email === '' || password === '') {
-      setAlert('Please enter all fields');
+      setAlert('Please enter all fields')
     } else if (password !== password2) {
-      setAlert('Please check password again');
+      setAlert('Please check password again')
     } else if (!agree) {
-      setAlert('Please click on checkbox');
+      setAlert('Please click on checkbox')
     } else {
       register({
         name,
         email,
         password,
-      });
+      })
     }
-  };
+  }
 
   return (
     <Fragment>
@@ -170,7 +170,7 @@ const Signup = (props) => {
         </div>
       </section>
     </Fragment>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup

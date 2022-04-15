@@ -75,8 +75,6 @@ router.put(
         new: true,
       })
       res.json(plan)
-      console.log(req.params)
-      console.log(req.body)
     } catch (err) {
       console.err(err.message)
       res.status(500).send('Server Error')

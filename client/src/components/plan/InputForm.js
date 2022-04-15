@@ -1,49 +1,49 @@
-import React, { useContext, useState } from 'react';
-import { PlanContext } from '../../context/plan/PlanContext';
-import { AuthContext } from '../../context/auth/AuthContext';
-import { AlertContext } from '../../context/alert/AlertContext';
+import React, { useContext, useState } from 'react'
+import { PlanContext } from 'context/plan/PlanContext'
+import { AuthContext } from 'context/auth/AuthContext'
+import { AlertContext } from 'context/alert/AlertContext'
 
 const InputForm = () => {
-  const planContext = useContext(PlanContext);
-  const authContext = useContext(AuthContext);
-  const alertContext = useContext(AlertContext);
+  const planContext = useContext(PlanContext)
+  const authContext = useContext(AuthContext)
+  const alertContext = useContext(AlertContext)
 
-  const { addPlan } = planContext;
-  const { user } = authContext;
-  const { setAlert } = alertContext;
+  const { addPlan } = planContext
+  const { user } = authContext
+  const { setAlert } = alertContext
 
   const [plan, setPlan] = useState({
     title: '',
     content: '',
     complete: false,
     type: 'personal',
-  });
+  })
 
-  const { title, content, type } = plan;
+  const { title, content, type } = plan
 
   const onChange = (e) => {
-    setPlan({ ...plan, [e.target.name]: e.target.value });
-  };
+    setPlan({ ...plan, [e.target.name]: e.target.value })
+  }
 
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (!user) {
-      setAlert('Please login!');
+      setAlert('Please login!')
     } else {
-      addPlan(plan);
+      addPlan(plan)
       setPlan({
         title: '',
         content: '',
         complete: false,
         type: 'personal',
-      });
+      })
     }
-  };
+  }
   return (
     <section className='lg:sticky lg:top-24'>
       <form
         onSubmit={onSubmit}
-        className='flex flex-col rounded-md px-4 py-4 md:px-8 md:px-8 bg-yellow-50 shadow-lg dark:bg-gray-600'
+        className='flex flex-col rounded-md mx-2 md:mx-0 px-4 py-4 md:px-8 md:px-8 bg-yellow-50 shadow-lg dark:bg-gray-700'
       >
         <div className='mb-4 text-left'>
           <label
@@ -132,7 +132,7 @@ const InputForm = () => {
         </div>
       </form>
     </section>
-  );
-};
+  )
+}
 
-export default InputForm;
+export default InputForm

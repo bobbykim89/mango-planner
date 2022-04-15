@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useReducer } from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import authReducer from './authReducer'
-import setAuthToken from '../../utils/setAuthToken'
+import setAuthToken from 'utils/setAuthToken'
 import {
   AUTH_ERROR,
   CLEAR_ERRORS,
@@ -46,7 +46,6 @@ const AuthState = (props) => {
     try {
       const res = await axios.get('/api/auth')
       dispatch({ type: USER_LOADED, payload: res.data })
-      console.log(res.data)
     } catch (err) {
       dispatch({ type: AUTH_ERROR })
     }
@@ -96,7 +95,6 @@ const AuthState = (props) => {
         type: LOGIN_FAIL,
         payload: err.response.data.msg,
       })
-      console.log('login error')
       Cookies.remove('token')
     }
   }
