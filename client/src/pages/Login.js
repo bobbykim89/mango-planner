@@ -47,8 +47,8 @@ const Login = (props) => {
       {isAuthenticated && !loading ? (
         <Navigate to='/' />
       ) : (
-        <section className='bg-red-50 py-20 min-h-85v dark:bg-gray-400'>
-          <div className='container w-11/12 md:w-1/3 bg-yellow-50 mx-auto px-4 md:px-8 py-8 rounded shadow-lg dark:bg-gray-600'>
+        <section className='bg-red-50 py-20 min-h-85v dark:bg-gray-600'>
+          <div className='container w-11/12 md:w-1/3 bg-yellow-50 mx-auto px-4 md:px-8 py-8 rounded shadow-lg dark:bg-gray-700'>
             <h1 className='mx-auto text-4xl text-red-500 font-bold text-center mb-4 tracking-wider dark:text-white'>
               Login
             </h1>
@@ -67,7 +67,7 @@ const Login = (props) => {
                   value={email}
                   onChange={onChange}
                   required
-                  className='block w-full p-2 border-2 border-yellow-400 outline-none bg-transparent dark:border-gray-300 text-yellow-600 dark:text-white'
+                  className='block w-full p-2 outline-none bg-yellow-100 dark:bg-gray-500 shadow text-yellow-600 dark:text-white'
                 />
               </div>
               <div className='mb-6'>
@@ -84,7 +84,7 @@ const Login = (props) => {
                   value={password}
                   onChange={onChange}
                   required
-                  className='block w-full p-2 border-2 border-yellow-400 outline-none bg-transparent dark:border-gray-300 text-yellow-600 dark:text-white'
+                  className='block w-full p-2 outline-none bg-yellow-100 dark:bg-gray-500 shadow text-yellow-600 dark:text-white'
                 />
               </div>
               <input

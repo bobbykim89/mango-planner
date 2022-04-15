@@ -43,7 +43,7 @@ const InputForm = () => {
     <section className='lg:sticky lg:top-24'>
       <form
         onSubmit={onSubmit}
-        className='flex flex-col rounded-md mx-2 md:mx-0 px-4 py-4 md:px-8 md:px-8 bg-yellow-50 shadow-lg dark:bg-gray-700'
+        className='flex flex-col rounded-md mx-2 md:mx-0 px-4 py-4 md:px-8 md:py-8 bg-yellow-50 shadow-lg dark:bg-gray-700'
       >
         <div className='mb-4 text-left'>
           <label
@@ -60,7 +60,7 @@ const InputForm = () => {
             onChange={onChange}
             required
             placeholder='Please write your plan here'
-            className='outline-none block w-full p-2 border-2 shadow border-yellow-400 bg-transparent dark:border-gray-300 text-yellow-600 dark:text-white'
+            className='rounded outline-none block w-full px-3 py-2 shadow bg-yellow-100 dark:bg-gray-500 shadow text-yellow-600 dark:text-white'
           />
         </div>
         <div className='mb-4 text-left'>
@@ -76,7 +76,7 @@ const InputForm = () => {
             placeholder='Write details here'
             value={content}
             onChange={onChange}
-            className='outline-none block w-full border-2 p-2 shadow border-yellow-400 bg-transparent text-yellow-600 dark:border-gray-300 dark:text-white h-32 lg:h-64 scrollbar-thin dark:scrollbar-thumb-gray-500 dark:scrollbar-track-gray-400 overflow-y-scroll scrollbar-thumb-yellow-300 scrollbar-track-yellow-200'
+            className='rounded outline-none block w-full px-3 py-2 shadow bg-yellow-100 dark:bg-gray-500 shadow dark:text-white h-32 lg:h-64 scrollbar-thin dark:scrollbar-thumb-gray-500 dark:scrollbar-track-gray-400 overflow-y-scroll scrollbar-thumb-yellow-300 scrollbar-track-yellow-200'
           ></textarea>
         </div>
         <div className='mb-4 text-lg font-semibold'>

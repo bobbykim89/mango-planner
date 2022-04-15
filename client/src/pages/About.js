@@ -12,7 +12,7 @@ const About = () => {
           content='This about page. Please check my Github page, Portfolio and Linkedin'
         />
       </Helmet>
-      <section className='bg-yellow-100 py-20 text-gray-500 font-semibold min-h-90v lg:min-h-85v dark:bg-gray-400 dark:text-white'>
+      <section className='bg-yellow-100 py-20 text-gray-500 font-semibold min-h-90v lg:min-h-85v dark:bg-gray-600 dark:text-white'>
         <div className='lg:w-2/3 mx-auto px-4'>
           <div className='inline-block items-center grid grid-flow-row lg:grid-cols-2'>
             {/* Left */}

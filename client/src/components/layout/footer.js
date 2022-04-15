@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className='flex flex-wrap justify-center bottom-0 mx-auto px-6 bg-yellow-200 shadow-inner dark:bg-gray-600'>
+    <footer className='flex flex-wrap justify-center bottom-0 mx-auto px-6 bg-yellow-200 shadow-inner dark:bg-gray-700'>
       <div className='container mt-6 border-t-2 border-red-300 md:w-2/3 items-center dark:border-yellow-300'>
         <div className='text-center py-4 flex flex-wrap justify-center'>
           <Link
@@ -15,7 +15,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
