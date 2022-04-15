@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import React, { Fragment, useContext, useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { PlanContext } from 'context/plan/PlanContext'
 import { AuthContext } from 'context/auth/AuthContext'
@@ -11,11 +11,39 @@ const Home = () => {
   const planContext = useContext(PlanContext)
   const { isAuthenticated, loading: authLoading } = useContext(AuthContext)
   const { plans, filtered, getPlans, loading } = planContext
+  const [query, setQuery] = useState('')
+  const [loadedPlans, setLoadedPlans] = useState([])
 
   useEffect(() => {
-    getPlans()
+    getPlans().then(loadPlans())
+    console.log('plans', plans)
+    console.log(query)
+    console.log(loadedPlans)
     // eslint-disable-next-line
-  }, [])
+  }, [query])
+
+  // const filterData = (data) => {
+  //   setQuery(data)
+  //   console.log(query)
+  // }
+
+  const loadPlans = () => {
+    const completed = plans.filter((plan) => plan.complete === true)
+    const incomplete = plans.filter((plan) => plan.complete === false)
+    const regex = new RegExp(`${query}`, 'gi')
+    if (query !== '') {
+      const filteredComplete = completed.filter((plan) => {
+        return plan.title.match(regex) || plan.content.match(regex)
+      })
+      const filteredIncomplete = incomplete.filter((plan) => {
+        return plan.title.match(regex) || plan.content.match(regex)
+      })
+      console.log([...filteredIncomplete, ...filteredComplete])
+      setLoadedPlans([...filteredIncomplete, ...filteredComplete])
+      return
+    }
+    setLoadedPlans([...incomplete, ...completed])
+  }
 
   const incompletePlans = plans.filter((plan) => plan.complete !== true)
 
@@ -32,7 +60,7 @@ const Home = () => {
               <InputForm />
             </div>
             <div className='text-center'>
-              <ListFilter />
+              <ListFilter setQuery={setQuery} />
               {!plans.length ? (
                 <span className='text-xl font-semibold text-yellow-600 dark:text-white'>
                   Yay! No plans! Let's take a break!
@@ -41,7 +69,7 @@ const Home = () => {
                 <Fragment>
                   {plans.length && !loading ? (
                     <Fragment>
-                      {filtered !== null ? (
+                      {/* {filtered !== null ? (
                         filtered.map((plan) => (
                           <PlanItem plan={plan} key={plan._id} />
                         ))
@@ -54,7 +82,10 @@ const Home = () => {
                             <PlanItem plan={plan} key={plan._id} />
                           ))}
                         </Fragment>
-                      )}
+                      )} */}
+                      {loadedPlans.map((plan) => (
+                        <PlanItem plan={plan} key={plan._id} />
+                      ))}
                     </Fragment>
                   ) : (
                     <Spinner />

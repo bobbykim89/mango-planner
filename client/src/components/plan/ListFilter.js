@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import { PlanContext } from 'context/plan/PlanContext'
 
-const ListFilter = () => {
+const ListFilter = ({ setQuery }) => {
   const planContext = useContext(PlanContext)
   const text = useRef('')
 
@@ -14,11 +14,13 @@ const ListFilter = () => {
   })
 
   const onChange = (e) => {
-    if (text.current.value !== '') {
-      filterPlans(e.target.value)
-    } else {
-      clearFilter()
-    }
+    filterPlans(e.target.value)
+    setQuery(e.target.value)
+    // if (text.current.value !== '') {
+
+    // } else {
+    //   clearFilter()
+    // }
   }
   return (
     <form className='rounded-md mx-2 md:mx-0 p-4 md:p-6 bg-yellow-50 shadow-lg mb-4 dark:bg-gray-700'>

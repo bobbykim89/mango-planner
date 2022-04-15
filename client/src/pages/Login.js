@@ -9,8 +9,7 @@ const Login = (props) => {
   const authContext = useContext(AuthContext)
 
   const { setAlert } = alertContext
-  const { login, error, clearErrors, isAuthenticated, loadUser, loading } =
-    authContext
+  const { login, error, clearErrors, isAuthenticated, loading } = authContext
 
   useEffect(() => {
     if (error === 'Invalid Credentials') {
@@ -67,7 +66,7 @@ const Login = (props) => {
                   value={email}
                   onChange={onChange}
                   required
-                  className='block w-full p-2 outline-none bg-yellow-100 dark:bg-gray-500 shadow text-yellow-600 dark:text-white'
+                  className='block w-full mt-1 p-2 outline-none bg-yellow-100 dark:bg-gray-500 shadow text-yellow-600 dark:text-white'
                 />
               </div>
               <div className='mb-6'>
@@ -84,7 +83,7 @@ const Login = (props) => {
                   value={password}
                   onChange={onChange}
                   required
-                  className='block w-full p-2 outline-none bg-yellow-100 dark:bg-gray-500 shadow text-yellow-600 dark:text-white'
+                  className='block w-full mt-1 p-2 outline-none bg-yellow-100 dark:bg-gray-500 shadow text-yellow-600 dark:text-white'
                 />
               </div>
               <input

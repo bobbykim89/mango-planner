@@ -60,7 +60,7 @@ const InputForm = () => {
             onChange={onChange}
             required
             placeholder='Please write your plan here'
-            className='rounded outline-none block w-full px-3 py-2 shadow bg-yellow-100 dark:bg-gray-500 shadow text-yellow-600 dark:text-white'
+            className='rounded outline-none block w-full mt-1 px-3 py-2 shadow bg-yellow-100 dark:bg-gray-500 shadow text-yellow-600 dark:text-white'
           />
         </div>
         <div className='mb-4 text-left'>
@@ -76,7 +76,7 @@ const InputForm = () => {
             placeholder='Write details here'
             value={content}
             onChange={onChange}
-            className='rounded outline-none block w-full px-3 py-2 shadow bg-yellow-100 dark:bg-gray-500 shadow dark:text-white h-32 lg:h-64 scrollbar-thin dark:scrollbar-thumb-gray-500 dark:scrollbar-track-gray-400 overflow-y-scroll scrollbar-thumb-yellow-300 scrollbar-track-yellow-200'
+            className='rounded outline-none block w-full mt-1 px-3 py-2 shadow bg-yellow-100 dark:bg-gray-500 shadow dark:text-white h-32 lg:h-64 scrollbar-thin dark:scrollbar-thumb-gray-500 dark:scrollbar-track-gray-400 overflow-y-scroll scrollbar-thumb-yellow-300 scrollbar-track-yellow-200'
           ></textarea>
         </div>
         <div className='mb-4 text-lg font-semibold'>
