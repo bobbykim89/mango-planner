@@ -14,10 +14,12 @@ const Home = () => {
   const [query, setQuery] = useState('')
 
   useEffect(() => {
-    getPlans()
+    if (isAuthenticated) {
+      getPlans()
+    }
 
     // eslint-disable-next-line
-  }, [])
+  }, [isAuthenticated])
 
   const loadPlans = () => {
     const completed = plans.filter((plan) => plan.complete === true)

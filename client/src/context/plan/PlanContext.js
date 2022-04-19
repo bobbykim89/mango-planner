@@ -18,7 +18,6 @@ const PlanState = (props) => {
   const initialState = {
     plans: [],
     current: null,
-    filtered: null,
     error: null,
     loading: true,
   }
@@ -107,7 +106,6 @@ const PlanState = (props) => {
       value={{
         plans: state.plans,
         current: state.current,
-        filtered: state.filtered,
         error: state.error,
         loading: state.loading,
         getPlans,
