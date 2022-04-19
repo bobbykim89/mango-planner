@@ -29,7 +29,7 @@ const About = () => {
               </h2>
               <div className='mb-4 text-md'>
                 <p>Planner webapp in mango color theme</p>
-                <p>Version: 0.1.1(Beta)</p>
+                <p>Version: 0.1.2(Beta)</p>
                 <p>Made by: Bobby Kim</p>
               </div>
               <ul className='text-6xl flex flex-wrap justify-center'>
