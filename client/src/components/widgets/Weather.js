@@ -50,16 +50,21 @@ const Weather = () => {
 
   const { city, weather, temperature } = data
 
-  const iconUrl = `https://openweathermap.org/img/wn/${weather}@2x.png`
+  let iconSrc
+  if (data.weather) {
+    iconSrc = require(`../../assets/imgs/weather/${weather}@2x.png`)
+  }
 
   return (
     <section className='grid grid-cols-2 mx-auto items-center'>
       <div className='inline-block align-middle  overflow-hidden w-12 text-center mx-auto'>
-        <img
-          src={iconUrl}
-          alt='weather icon'
-          className='object-center object-cover'
-        />
+        {iconSrc && (
+          <img
+            src={iconSrc}
+            alt='weather icon'
+            className='object-center object-cover'
+          />
+        )}
       </div>
       <div className='row-span-1 inline-block align-middle text-center text-red-500 text-sm font-semibold dark:text-yellow-400'>
         <div>{city}</div>
