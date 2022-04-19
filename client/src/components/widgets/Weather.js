@@ -1,54 +1,57 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Weather = () => {
-  const [coordinate, setCoordinate] = useState({ lat: '', lon: '' });
+  const [coordinate, setCoordinate] = useState({ lat: '', lon: '' })
   const [data, setData] = useState({
     city: '',
     weather: '',
     temperature: '',
-  });
+  })
 
-  const { lat, lon } = coordinate;
+  const { lat, lon } = coordinate
 
-  const API_KEY = 'b87e6baf25314701a619bc852c84fe30';
+  const API_KEY = 'b87e6baf25314701a619bc852c84fe30'
 
   // const API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`
 
   useEffect(() => {
-    getWeather();
+    getWeather()
 
     // eslint-disable-next-line
-  }, [lat, lon]);
+  }, [lat, lon])
 
   const getGeoData = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       setCoordinate({
         lat: position.coords.latitude,
         lon: position.coords.longitude,
-      });
-    });
-  };
+      })
+    })
+  }
 
   const getWeather = async () => {
-    getGeoData();
-    await fetch(url)
-      .then((res) => res.json())
-      .then((result) => {
+    getGeoData()
+    try {
+      const res = await fetch(url)
+      const result = await res.json()
+      if (result.name) {
         setData({
-          city: result !== '' && result.name,
-          weather: result !== '' && result.weather[0].icon,
-          temperature: result !== '' && result.main.temp,
-        });
-        console.log(data);
-      })
-      .catch((err) => console.error(err));
-  };
+          city: result.name,
+          weather: result.weather[0].icon,
+          temperature: result.main.temp,
+        })
+      }
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
-  const { city, weather, temperature } = data;
+  const { city, weather, temperature } = data
 
-  const iconUrl = `https://openweathermap.org/img/wn/${weather}@2x.png`;
+  const iconUrl = `https://openweathermap.org/img/wn/${weather}@2x.png`
 
   return (
     <section className='grid grid-cols-2 mx-auto items-center'>
@@ -64,7 +67,7 @@ const Weather = () => {
         <div>{temperature} &deg;F</div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Weather;
+export default Weather

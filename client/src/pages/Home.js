@@ -10,22 +10,14 @@ import Spinner from 'components/layout/Spinner'
 const Home = () => {
   const planContext = useContext(PlanContext)
   const { isAuthenticated, loading: authLoading } = useContext(AuthContext)
-  const { plans, filtered, getPlans, loading } = planContext
+  const { plans, getPlans, loading } = planContext
   const [query, setQuery] = useState('')
-  const [loadedPlans, setLoadedPlans] = useState([])
 
   useEffect(() => {
     getPlans()
 
-    console.log('plans', plans)
-    console.log(query)
     // eslint-disable-next-line
-  }, [query])
-
-  // const filterData = (data) => {
-  //   setQuery(data)
-  //   console.log(query)
-  // }
+  }, [])
 
   const loadPlans = () => {
     const completed = plans.filter((plan) => plan.complete === true)
@@ -38,27 +30,12 @@ const Home = () => {
       const filteredIncomplete = incomplete.filter((plan) => {
         return plan.title.match(regex) || plan.content.match(regex)
       })
-      console.log([...filteredIncomplete, ...filteredComplete])
       return [...filteredIncomplete, ...filteredComplete]
     }
     return [...incomplete, ...completed]
   }
 
-  const incompletePlans = plans.filter((plan) => plan.complete !== true)
-
-  const completedPlans = plans.filter((plan) => plan.complete === true)
-
-  const sortedPlans = [
-    ...plans.filter((plan) => plan.complete !== true),
-    ...plans.filter((plan) => plan.complete === true),
-  ]
-
-  const filteredPlans = [
-    ...plans.filter((plan) => {
-      const regex = new RegExp(`${query}`, 'gi')
-      return plan.title.match(regex) || plan.content.match(regex)
-    }),
-  ]
+  const loadedPlans = [...loadPlans()]
 
   return (
     <Fragment>
@@ -80,29 +57,9 @@ const Home = () => {
                 <Fragment>
                   {plans.length && !loading ? (
                     <Fragment>
-                      {query !== '' ? (
-                        // filtered.map((plan) => (
-                        //   <PlanItem plan={plan} key={plan._id} />
-                        // ))
-                        filteredPlans.map((plan) => (
-                          <PlanItem plan={plan} key={plan._id} />
-                        ))
-                      ) : (
-                        <Fragment>
-                          {/* {incompletePlans.map((plan) => (
-                            <PlanItem plan={plan} key={plan._id} />
-                          ))}
-                          {completedPlans.map((plan) => (
-                            <PlanItem plan={plan} key={plan._id} />
-                          ))} */}
-                          {sortedPlans.map((plan) => (
-                            <PlanItem plan={plan} key={plan._id} />
-                          ))}
-                        </Fragment>
-                      )}
-                      {/* {loadPlans.map((plan) => (
+                      {loadedPlans.map((plan) => (
                         <PlanItem plan={plan} key={plan._id} />
-                      ))} */}
+                      ))}
                     </Fragment>
                   ) : (
                     <Spinner />

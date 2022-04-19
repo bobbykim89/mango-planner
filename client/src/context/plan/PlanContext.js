@@ -1,12 +1,10 @@
 import axios from 'axios'
-import React, { createContext, useReducer, useEffect } from 'react'
+import React, { createContext, useReducer } from 'react'
 import {
   ADD_PLAN,
   CLEAR_CURRENT,
-  CLEAR_FILTER,
   CLEAR_PLANS,
   DELETE_PLAN,
-  FILTER_PLANS,
   GET_PLANS,
   PLAN_ERROR,
   SET_CURRENT,
@@ -104,16 +102,6 @@ const PlanState = (props) => {
     dispatch({ type: CLEAR_CURRENT })
   }
 
-  // Filter Plans
-  const filterPlans = (text) => {
-    dispatch({ type: FILTER_PLANS, payload: text })
-  }
-
-  // Clear Filter
-  const clearFilter = () => {
-    dispatch({ type: CLEAR_FILTER })
-  }
-
   return (
     <PlanContext.Provider
       value={{
@@ -129,8 +117,6 @@ const PlanState = (props) => {
         clearPlans,
         setCurrent,
         clearCurrent,
-        filterPlans,
-        clearFilter,
       }}
     >
       {props.children}

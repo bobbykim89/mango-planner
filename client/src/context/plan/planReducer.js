@@ -1,10 +1,8 @@
 import {
   ADD_PLAN,
   CLEAR_CURRENT,
-  CLEAR_FILTER,
   CLEAR_PLANS,
   DELETE_PLAN,
-  FILTER_PLANS,
   GET_PLANS,
   PLAN_ERROR,
   SET_CURRENT,
@@ -56,19 +54,6 @@ const planReducer = (state, action) => {
       return {
         ...state,
         current: null,
-      }
-    case FILTER_PLANS:
-      return {
-        ...state,
-        filtered: state.plans.filter((plan) => {
-          const regex = new RegExp(`${action.payload}`, 'gi')
-          return plan.title.match(regex) || plan.content.match(regex)
-        }),
-      }
-    case CLEAR_FILTER:
-      return {
-        ...state,
-        filtered: null,
       }
     case PLAN_ERROR:
       return {
