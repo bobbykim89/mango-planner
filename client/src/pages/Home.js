@@ -15,10 +15,10 @@ const Home = () => {
   const [loadedPlans, setLoadedPlans] = useState([])
 
   useEffect(() => {
-    getPlans().then(loadPlans())
+    getPlans()
+
     console.log('plans', plans)
     console.log(query)
-    console.log(loadedPlans)
     // eslint-disable-next-line
   }, [query])
 
@@ -39,15 +39,26 @@ const Home = () => {
         return plan.title.match(regex) || plan.content.match(regex)
       })
       console.log([...filteredIncomplete, ...filteredComplete])
-      setLoadedPlans([...filteredIncomplete, ...filteredComplete])
-      return
+      return [...filteredIncomplete, ...filteredComplete]
     }
-    setLoadedPlans([...incomplete, ...completed])
+    return [...incomplete, ...completed]
   }
 
   const incompletePlans = plans.filter((plan) => plan.complete !== true)
 
   const completedPlans = plans.filter((plan) => plan.complete === true)
+
+  const sortedPlans = [
+    ...plans.filter((plan) => plan.complete !== true),
+    ...plans.filter((plan) => plan.complete === true),
+  ]
+
+  const filteredPlans = [
+    ...plans.filter((plan) => {
+      const regex = new RegExp(`${query}`, 'gi')
+      return plan.title.match(regex) || plan.content.match(regex)
+    }),
+  ]
 
   return (
     <Fragment>
@@ -69,23 +80,29 @@ const Home = () => {
                 <Fragment>
                   {plans.length && !loading ? (
                     <Fragment>
-                      {/* {filtered !== null ? (
-                        filtered.map((plan) => (
+                      {query !== '' ? (
+                        // filtered.map((plan) => (
+                        //   <PlanItem plan={plan} key={plan._id} />
+                        // ))
+                        filteredPlans.map((plan) => (
                           <PlanItem plan={plan} key={plan._id} />
                         ))
                       ) : (
                         <Fragment>
-                          {incompletePlans.map((plan) => (
+                          {/* {incompletePlans.map((plan) => (
                             <PlanItem plan={plan} key={plan._id} />
                           ))}
                           {completedPlans.map((plan) => (
                             <PlanItem plan={plan} key={plan._id} />
+                          ))} */}
+                          {sortedPlans.map((plan) => (
+                            <PlanItem plan={plan} key={plan._id} />
                           ))}
                         </Fragment>
-                      )} */}
-                      {loadedPlans.map((plan) => (
+                      )}
+                      {/* {loadPlans.map((plan) => (
                         <PlanItem plan={plan} key={plan._id} />
-                      ))}
+                      ))} */}
                     </Fragment>
                   ) : (
                     <Spinner />

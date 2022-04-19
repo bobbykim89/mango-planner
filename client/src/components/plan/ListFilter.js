@@ -29,7 +29,7 @@ const ListFilter = ({ setQuery }) => {
         ref={text}
         placeholder='Search'
         onChange={onChange}
-        className='rounded outline-none block w-full px-3 py-2 shadow bg-yellow-100 dark:bg-gray-500 shadow dark:focus:text-white'
+        className='rounded outline-none block w-full px-3 py-2 shadow bg-yellow-100 dark:bg-gray-500 shadow text-yellow-600 dark:text-white'
       />
     </form>
   )
