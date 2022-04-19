@@ -186,9 +186,6 @@ const PlanItem = ({ plan }) => {
           >
             keyboard_arrow_up
           </span>
-          {/* <span className='material-icons text-yellow-600 hover:text-yellow-400 dark:text-gray-300 dark:hover:text-white '>
-            {details ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
-          </span> */}
         </div>
       </div>
 

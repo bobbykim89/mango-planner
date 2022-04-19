@@ -44,14 +44,18 @@ axios\
 hamburger-react\
 postcss-cli\
 react-router-dom\
+js-cookie\
 tailwindcss
 
 ## Changes
 
-1. Fixed about page issue where picture look stretched in safari
-2. Added feature that automatically put incompleted plans on the top side and completed ones to the bottom side.
+1. Update the version of dependencies.
+2. Use Cookie for authentication instead of using local storage.
+3. Minor update of layout and components and its colors.
+4. Remove no longer used line of code.
+5. Update the way to display plans in main page.
+6. Update plan context and auth context and remove no longer used functionalities.
 
 ## Known Issues
 
 1. Weather App API key issue
-2. Changes doesn't apply right away when you edit plans after doing search

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 
 const Weather = () => {
   const [coordinate, setCoordinate] = useState({ lat: '', lon: '' })
