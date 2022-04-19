@@ -55,6 +55,7 @@ tailwindcss
 4. Remove no longer used line of code.
 5. Update the way to display plans in main page.
 6. Update plan context and auth context and remove no longer used functionalities.
+7. Update weather app to use icon files stored locally instead of using online source.
 
 ## Known Issues
 
