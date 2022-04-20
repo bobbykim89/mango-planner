@@ -1,4 +1,4 @@
-# Mango Planner v0.1.1 (Deployed)
+# Mango Planner v0.1.2 (Deployed)
 
 App Deployed on heroku as [Mango Planner](https://mangoplanner.herokuapp.com/).
 
@@ -38,7 +38,6 @@ nodemon
 ### `Frontend Dependencies`
 
 fontawesome\
-aos\
 autoprefixer\
 axios\
 hamburger-react\
@@ -50,12 +49,13 @@ tailwindcss
 ## Changes
 
 1. Update the version of dependencies.
-2. Use Cookie for authentication instead of using local storage.
-3. Minor update of layout and components and its colors.
-4. Remove no longer used line of code.
-5. Update the way to display plans in main page.
-6. Update plan context and auth context and remove no longer used functionalities.
-7. Update weather app to use icon files stored locally instead of using online source.
+2. Update frontend folder structure to make more sense.
+3. Use Cookie for authentication instead of using local storage.
+4. Minor update of layout and components and its colors.
+5. Remove no longer used line of code.
+6. Update the way to display plans in main page.
+7. Update plan context and auth context and remove no longer used functionalities.
+8. Update weather app to use icon files stored locally instead of using online source.
 
 ## Known Issues
 
