@@ -60,3 +60,14 @@ tailwindcss
 ## Known Issues
 
 1. Weather App API key issue
+
+## Change Log
+
+### v0.1.0
+
+1. Initial release
+
+### v0.1.1
+
+1. Fix about page issue where picture look stretched in safari
+2. Add feature that automatically put incomplete plans on the top side and completed ones to the bottom side.
