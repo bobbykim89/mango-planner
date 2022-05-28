@@ -1,4 +1,4 @@
-# Mango Planner v0.1.2 (Deployed)
+# Mango Planner v0.1.3 (In progress)
 
 App Deployed on heroku as [Mango Planner](https://mangoplanner.herokuapp.com/).
 
@@ -26,36 +26,40 @@ App can be found in [http://localhost:3000](http://localhost:3000) for more info
 ### `Backend Dependencies`
 
 bcryptjs\
-dotenv\
 express\
 express-mongo-sanitize\
 express-validator\
 helmet\
-jsonwebtoken\
+jsonwebtoken
+
+### `Backend Dev Dependencies`
+
+dotenv\
 concurrently\
 nodemon
 
 ### `Frontend Dependencies`
 
-fontawesome\
-autoprefixer\
 axios\
 hamburger-react\
-postcss-cli\
 react-router-dom\
 js-cookie\
-tailwindcss
+uuid
+
+### `Frontend Dev Dependencies`
+
+vite\
+@vitejs/plugin-react\
+autoprefixer\
+tailwindcss\
+postcss-cli
 
 ## Changes
 
-1. Update the version of dependencies.
-2. Update frontend folder structure to make more sense.
-3. Use Cookie for authentication instead of using local storage.
-4. Minor update of layout and components and its colors.
-5. Remove no longer used line of code.
-6. Update the way to display plans in main page.
-7. Update plan context and auth context and remove no longer used functionalities.
-8. Update weather app to use icon files stored locally instead of using online source.
+1. Use Vite as bundler for frontend page instead of Webpack.
+2. Create vite.config.js file to for bundling configuration.
+3. config absolute path to use @/\* instead.
+4. Update some line of code to use Vite specific expression.
 
 ## Known Issues
 
@@ -71,3 +75,14 @@ tailwindcss
 
 1. Fix about page issue where picture look stretched in safari
 2. Add feature that automatically put incomplete plans on the top side and completed ones to the bottom side.
+
+### v0.1.2
+
+1. Update the version of dependencies.
+2. Update frontend folder structure to make more sense.
+3. Use Cookie for authentication instead of using local storage.
+4. Minor update of layout and components and its colors.
+5. Remove no longer used line of code.
+6. Update the way to display plans in main page.
+7. Update plan context and auth context and remove no longer used functionalities.
+8. Update weather app to use icon files stored locally instead of using online source.

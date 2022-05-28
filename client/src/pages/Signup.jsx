@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect, Fragment } from 'react'
 import { Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { AlertContext } from 'context/alert/AlertContext'
-import { AuthContext } from 'context/auth/AuthContext'
+
+import { AlertContext } from '@/context/alert/AlertContext'
+import { AuthContext } from '@/context/auth/AuthContext'
 
 const Signup = (props) => {
   const alertContext = useContext(AlertContext)

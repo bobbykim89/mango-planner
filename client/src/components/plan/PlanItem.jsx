@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { PlanContext } from 'context/plan/PlanContext'
-import { AuthContext } from 'context/auth/AuthContext'
-import { AlertContext } from 'context/alert/AlertContext'
+
+import { PlanContext } from '@/context/plan/PlanContext'
+import { AuthContext } from '@/context/auth/AuthContext'
+import { AlertContext } from '@/context/alert/AlertContext'
 
 const PlanItem = ({ plan }) => {
   const planContext = useContext(PlanContext)

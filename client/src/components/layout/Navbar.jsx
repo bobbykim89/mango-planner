@@ -2,11 +2,12 @@ import React, { Fragment, useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import Hamburger from 'hamburger-react'
-import Weather from 'components/widgets/Weather'
-import DarkMode from 'components/widgets/DarkMode'
 
-import { AuthContext } from 'context/auth/AuthContext'
-import logo from 'assets/imgs/logo.png'
+import Weather from '@/components/widgets/Weather'
+import DarkMode from '@/components/widgets/DarkMode'
+
+import { AuthContext } from '@/context/auth/AuthContext'
+import logo from '@/assets/imgs/logo.png'
 
 const Navbar = ({ title }) => {
   const authContext = useContext(AuthContext)

@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useReducer } from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import authReducer from './authReducer'
-import setAuthToken from 'utils/setAuthToken'
+import setAuthToken from '@/utils/setAuthToken'
 import {
   AUTH_ERROR,
   CLEAR_ERRORS,

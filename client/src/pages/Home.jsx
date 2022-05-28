@@ -1,11 +1,12 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
-import { PlanContext } from 'context/plan/PlanContext'
-import { AuthContext } from 'context/auth/AuthContext'
-import InputForm from 'components/plan/InputForm'
-import PlanItem from 'components/plan/PlanItem'
-import ListFilter from 'components/plan/ListFilter'
-import Spinner from 'components/layout/Spinner'
+
+import { PlanContext } from '@/context/plan/PlanContext'
+import { AuthContext } from '@/context/auth/AuthContext'
+import InputForm from '@/components/plan/InputForm'
+import PlanItem from '@/components/plan/PlanItem'
+import ListFilter from '@/components/plan/ListFilter'
+import Spinner from '@/components/layout/Spinner'
 
 const Home = () => {
   const planContext = useContext(PlanContext)
