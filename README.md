@@ -23,7 +23,7 @@ App can be found in [http://localhost:3000](http://localhost:3000) for more info
 
 ## Dependencies
 
-### `Backend Dependencies`
+### Backend Dependencies
 
 bcryptjs\
 express\
@@ -32,13 +32,13 @@ express-validator\
 helmet\
 jsonwebtoken
 
-### `Backend Dev Dependencies`
+### Backend Dev Dependencies
 
 dotenv\
 concurrently\
 nodemon
 
-### `Frontend Dependencies`
+### Frontend Dependencies
 
 axios\
 hamburger-react\
@@ -46,7 +46,7 @@ react-router-dom\
 js-cookie\
 uuid
 
-### `Frontend Dev Dependencies`
+### Frontend Dev Dependencies
 
 vite\
 @vitejs/plugin-react\
