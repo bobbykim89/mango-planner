@@ -15,6 +15,8 @@ import AuthState from '@/context/auth/AuthContext'
 import AlertState from '@/context/alert/AlertContext'
 import PlanState from '@/context/plan/PlanContext'
 
+import SW from '@/components/SW/SW'
+
 function App() {
   return (
     <AuthState>
@@ -32,6 +34,7 @@ function App() {
               <Fragment>
                 <Navbar />
                 <Alerts />
+                <SW />
                 <Routes>
                   <Route exact path='/' element={<Home />} />
                   <Route exact path='/login' element={<Login />} />
