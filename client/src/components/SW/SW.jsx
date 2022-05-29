@@ -11,23 +11,28 @@ const SW = () => {
     updateServiceWorker,
   } = useRegisterSW({
     onRegistered(r) {
-      console.log(`SW Registered ${r}`)
+      console.log('SW Registered')
+      r &&
+        setInterval(() => {
+          r.update()
+        }, intervalMS)
     },
-    onRegisterError(error) {
-      console.log('SW Registration ERROR', error)
+    onRegisterError(err) {
+      setAlert('SW Registration Error!')
+      console.log('SW Registration ERROR', err)
     },
   })
 
+  const intervalMS = 60 * 60 * 1000
+
   useEffect(() => {
-    console.log('offline ready', offlineReady)
-    console.log('need refresh', needRefresh)
     if (offlineReady) {
       setAlert('Mango Planner is offline ready now')
     } else if (needRefresh) {
       updateServiceWorker(true)
       setAlert('Content update needed.')
     }
-  }, [needRefresh, offlineReady, updateServiceWorker])
+  }, [needRefresh, offlineReady])
 
   return null
 }

@@ -19,7 +19,7 @@ export default defineConfig({
         'robots.txt',
       ],
       devOptions: {
-        enabled: true,
+        enabled: process.env.NODE_ENV !== 'production',
       },
       workbox: {
         cleanupOutdatedCaches: true,
