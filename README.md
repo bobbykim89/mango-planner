@@ -40,6 +40,9 @@ nodemon
 
 ### Frontend Dependencies
 
+vite\
+@vitejs/plugin-react\
+vite-plugin-pwa\
 axios\
 hamburger-react\
 react-router-dom\
@@ -48,8 +51,6 @@ uuid
 
 ### Frontend Dev Dependencies
 
-vite\
-@vitejs/plugin-react\
 autoprefixer\
 tailwindcss\
 postcss-cli
