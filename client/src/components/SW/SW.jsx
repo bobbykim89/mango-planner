@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import { useRegisterSW } from 'virtual:pwa-register/react'
 
 import { AlertContext } from '@/context/alert/AlertContext'
@@ -25,12 +25,20 @@ const SW = () => {
 
   const intervalMS = 60 * 60 * 1000
 
+  const closeNotification = () => {
+    setOfflineReady(false)
+    setNeedRefresh(false)
+  }
+
   useEffect(() => {
+    // Display Alert bar when site is offline ready or when ServiceWorker needs to be refreshed. then update ServiceWorker accordingly.
     if (offlineReady) {
       setAlert('Mango Planner is offline ready now')
     } else if (needRefresh) {
       updateServiceWorker(true)
       setAlert('Content update needed.')
+    } else {
+      closeNotification()
     }
   }, [needRefresh, offlineReady])
 

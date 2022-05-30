@@ -18,6 +18,7 @@ export default defineConfig({
         'pwa-512x512.png',
         'robots.txt',
       ],
+      registerType: 'autoUpdate',
       devOptions: {
         enabled: process.env.NODE_ENV !== 'production',
       },
