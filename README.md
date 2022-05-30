@@ -1,4 +1,4 @@
-# Mango Planner v0.1.3 (In progress)
+# Mango Planner v0.1.3 (Deployed)
 
 App Deployed on heroku as [Mango Planner](https://mangoplanner.herokuapp.com/).
 
