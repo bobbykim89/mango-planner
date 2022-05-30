@@ -60,6 +60,8 @@ postcss-cli
 2. Create vite.config.js file to for bundling configuration.
 3. config absolute path to use @/\* instead.
 4. Update some line of code to use Vite specific expression.
+5. Add component handling register serviceWorker, and it send alert messages based on serviceWorker status.
+6. Update manifest.json to handle how it will be displayed on mobile device.
 
 ## Known Issues
 
