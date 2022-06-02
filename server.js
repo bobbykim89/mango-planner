@@ -5,7 +5,6 @@ const express = require('express')
 const path = require('path')
 const mongoSanitize = require('express-mongo-sanitize')
 const helmet = require('helmet')
-const cors = require('cors')
 const connectDB = require('./config/connectDB')
 const app = express()
 
@@ -13,7 +12,6 @@ const app = express()
 connectDB()
 
 // Init Middleware
-app.use(cors())
 app.use(express.json({ extended: false }))
 app.use(mongoSanitize())
 app.use(helmet())

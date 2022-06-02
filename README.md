@@ -1,4 +1,4 @@
-# Mango Planner v0.1.3 (Deployed)
+# Mango Planner v0.1.4 (Deployed)
 
 App Deployed on heroku as [Mango Planner](https://mangoplanner.herokuapp.com/).
 
@@ -47,7 +47,14 @@ axios\
 hamburger-react\
 react-router-dom\
 js-cookie\
-uuid
+uuid\
+workbox-background-sync\
+workbox-cacheable-response\
+workbox-core\
+workbox-expiration\
+workbox-precaching\
+workbox-routing\
+workbox-strategies
 
 ### Frontend Dev Dependencies
 
@@ -57,16 +64,22 @@ postcss-cli
 
 ## Changes
 
-1. Use Vite as bundler for frontend page instead of Webpack.
-2. Create vite.config.js file to for bundling configuration.
-3. config absolute path to use @/\* instead.
-4. Update some line of code to use Vite specific expression.
-5. Add component handling register serviceWorker, and it send alert messages based on serviceWorker status.
-6. Update manifest.json to handle how it will be displayed on mobile device.
+1. Update Workbox strategy from GenerateSW to InjectManifest method.
+2. Remove manifest.json file and moved manifest data inside vite.config.js file
+3. Config caching route to have category based on type of cached data:
+   - api-data: runtime caching for data from backend API
+   - weather-data: runtime caching for data retrieved from weather app
+   - google-icon: runtime caching for google material icons
+   - fa-icon: runtime caching for fontawesome icons
+   - image: runtime caching for data marked as images
+   - static-resources: runtime caching for data marked as scripts or stylesheets
+   - precache: precaching for manifest data and scripts
+   - runtime-caching: runtime caching for misc data that doesn't fit above
+4. Config Background sync for offline POST requests.
+   - bg-sync-queue
+5. Update Weather APP API key issue.
 
 ## Known Issues
-
-1. Weather App API key issue
 
 ## Change Log
 

@@ -19,7 +19,6 @@ const SW = () => {
     },
     onRegisterError(err) {
       setAlert('SW Registration Error!')
-      console.log('SW Registration ERROR', err)
     },
   })
 
