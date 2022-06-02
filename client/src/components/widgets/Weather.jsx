@@ -54,7 +54,7 @@ const Weather = () => {
   if (data.weather) {
     // iconSrc = require(`../../assets/imgs/weather/${weather}@2x.png`)
     iconSrc = new URL(
-      `../../assets/imgs/weather/${weather}@2x.png`,
+      `../../assets/imgs/weather/${weather}.png`,
       import.meta.url
     ).href
   }

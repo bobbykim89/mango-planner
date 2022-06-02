@@ -11,7 +11,7 @@ const SW = () => {
     updateServiceWorker,
   } = useRegisterSW({
     onRegistered(r) {
-      console.log('SW Registered')
+      setAlert('SW Registered!')
       r &&
         setInterval(() => {
           r.update()
