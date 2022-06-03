@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import Hamburger from 'hamburger-react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Weather from '@/components/widgets/Weather'
 import DarkMode from '@/components/widgets/DarkMode'
@@ -34,7 +35,7 @@ const Navbar = ({ title }) => {
       </li>
       <li className='inline-block text-red-500 align-middle text-xl mx-2 hover:text-white transition ease-in duration-150 dark:text-yellow-400 dark:hover:text-white'>
         <a onClick={onLogout} href='/'>
-          <i className='fas fa-sign-out-alt' />
+          <FontAwesomeIcon icon='fa-solid fa-right-from-bracket' />
           <span className='hidden md:inline ml-2 text-lg font-semibold'>
             Logout
           </span>
@@ -50,7 +51,10 @@ const Navbar = ({ title }) => {
         onClick={clickHandler}
         className='inline-block text-red-500 align-middle text-xl mx-3 hover:text-white transition ease-in duration-150 dark:text-yellow-400 dark:hover:text-white'
       >
-        <i className='fas fa-sign-in-alt lg:pl-4 lg:border-l lg:border-red-500 lg:dark:border-yellow-400' />
+        <FontAwesomeIcon
+          icon='fa-solid fa-right-to-bracket'
+          className='lg:pl-4 lg:border-l lg:border-red-500 lg:dark:border-yellow-400'
+        />
         <span className='ml-2 text-lg font-semibold'>Login</span>
       </Link>
       <Link
@@ -58,7 +62,7 @@ const Navbar = ({ title }) => {
         onClick={clickHandler}
         className='inline-block text-red-500 align-middle text-xl mx-3 hover:text-white transition ease-in duration-150 dark:text-yellow-400 dark:hover:text-white'
       >
-        <i className='fas fa-user-plus' />
+        <FontAwesomeIcon icon='fa-solid fa-user-plus' />
         <span className='ml-2 text-lg font-semibold'>Signup</span>
       </Link>
     </Fragment>

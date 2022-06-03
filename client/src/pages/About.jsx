@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet-async'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import about from '@/assets/imgs/about.jpg'
 
 const About = () => {
@@ -39,7 +40,7 @@ const About = () => {
                     target='_blank'
                     rel='noreferrer'
                   >
-                    <i className='fab fa-github-square' />
+                    <FontAwesomeIcon icon='fa-brands fa-github-square' />
                   </a>
                 </li>
                 <li className='mx-2 hover:text-red-500 dark:hover:text-yellow-400 transition ease-in duration-150'>
@@ -48,7 +49,7 @@ const About = () => {
                     target='_blank'
                     rel='noreferrer'
                   >
-                    <i className='fab fa-linkedin' />
+                    <FontAwesomeIcon icon='fa-brands fa-linkedin' />
                   </a>
                 </li>
                 <li className='mx-2 hover:text-red-500 dark:hover:text-yellow-400 transition ease-in duration-150'>
@@ -57,7 +58,7 @@ const About = () => {
                     target='_blank'
                     rel='noreferrer'
                   >
-                    <i className='fas fa-envelope' />
+                    <FontAwesomeIcon icon='fa-solid fa-envelope' />
                   </a>
                 </li>
               </ul>

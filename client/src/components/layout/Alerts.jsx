@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { AlertContext } from '@/context/alert/AlertContext'
 
 const Alerts = () => {
@@ -11,7 +12,7 @@ const Alerts = () => {
         key={alert.id}
         className='px-3 py-3 text-white text-center bg-red-500 shadow-md'
       >
-        <i className='fas fa-info-circle' /> {alert.msg}
+        <FontAwesomeIcon icon='fa-solid fa-circle-info' /> {alert.msg}
       </div>
     ))
   )

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { PlanContext } from '@/context/plan/PlanContext'
 import { AuthContext } from '@/context/auth/AuthContext'
@@ -148,30 +149,31 @@ const PlanItem = ({ plan }) => {
             <span>{plan.content}</span>
           </div>
         </div>
-        <div className='grid-flow-row text-yellow-600 text-md text-right dark:text-gray-300'>
+        <div className='grid-flow-row text-yellow-600 text-xl text-right dark:text-gray-300'>
           <span
             className={
-              'material-icons cursor-pointer align-middle hover:text-yellow-400 dark:hover:text-white' +
+              'cursor-pointer align-middle hover:text-yellow-400 dark:hover:text-white' +
               (plan.complete
                 ? ' text-green-600 dark:text-green-300'
                 : ' text-red-600 dark:text-red-400')
             }
             onClick={toggleComplete}
           >
-            verified
+            <FontAwesomeIcon icon='fa-solid fa-circle-check' />
           </span>
           <div className={'flex flex-col' + (details ? '' : ' hidden')}>
             <span
-              className='material-icons cursor-pointer my-4 hover:text-yellow-400 dark:hover:text-white'
+              className='cursor-pointer my-4 hover:text-yellow-400 dark:hover:text-white'
               onClick={handleToggler}
             >
-              edit
+              <FontAwesomeIcon icon='fa-solid fa-pen' />
             </span>
+
             <span
-              className='material-icons cursor-pointer hover:text-yellow-400 dark:hover:text-white'
+              className='cursor-pointer hover:text-yellow-400 dark:hover:text-white'
               onClick={handleDelete}
             >
-              delete
+              <FontAwesomeIcon icon='fa-solid fa-trash' />
             </span>
           </div>
         </div>
@@ -181,11 +183,16 @@ const PlanItem = ({ plan }) => {
         >
           <span
             className={
-              'material-icons text-yellow-600 hover:text-yellow-400 dark:text-gray-300 dark:hover:text-white transition-all duration-300 ease-in ' +
-              (details ? 'rotate-0' : 'rotate-180')
+              'text-yellow-600 hover:text-yellow-400 dark:text-gray-300 dark:hover:text-white'
             }
           >
-            keyboard_arrow_up
+            <FontAwesomeIcon
+              icon='fa-solid fa-chevron-up'
+              className={
+                'transition-all duration-300 ease-in ' +
+                (details ? 'rotate-0' : 'rotate-180')
+              }
+            />
           </span>
         </div>
       </div>
@@ -258,15 +265,17 @@ const PlanItem = ({ plan }) => {
               />
             </div>
           </div>
-          <div className='flex flex-col text-yellow-600 text-md text-right dark:text-gray-300'>
+          <div className='flex flex-col text-yellow-600 text-xl text-right dark:text-gray-300'>
             <button className='inline-block cursor-pointer mb-4 text-right hover:text-yellow-400 dark:hover:text-white'>
-              <span className='material-icons'>done</span>
+              <span>
+                <FontAwesomeIcon icon='fa-solid fa-check' />
+              </span>
             </button>
             <span
-              className='material-icons cursor-pointer hover:text-yellow-400 dark:hover:text-white'
+              className='cursor-pointer hover:text-yellow-400 dark:hover:text-white text-2xl'
               onClick={onCancelEdit}
             >
-              close
+              <FontAwesomeIcon icon='fa-solid fa-xmark' />
             </span>
           </div>
         </form>
