@@ -14,7 +14,7 @@ connectDB()
 // Init Middleware
 app.use(express.json({ extended: false }))
 app.use(mongoSanitize())
-app.use(helmet())
+// app.use(helmet())
 
 const scriptSrcUrls = [
   'https://cdn.jsdelivr.net',
