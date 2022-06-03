@@ -33,27 +33,27 @@ const fontSrcUrls = [
   'https://fonts.googleapis.com',
   'https://fonts.gstatic.com',
 ]
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'", ...defaultSrcUrls],
-      connectSrc: ["'self'", ...connectSrcUrls],
-      scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
-      styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-      workerSrc: ["'self'", 'blob:'],
-      childSrc: ['blob:'],
-      objectSrc: [],
-      imgSrc: [
-        "'self'",
-        'blob:',
-        'data:',
-        'https://openweathermap.org',
-        'https://images.unsplash.com',
-      ],
-      fontSrc: ["'self'", ...fontSrcUrls],
-    },
-  })
-)
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     directives: {
+//       defaultSrc: ["'self'", ...defaultSrcUrls],
+//       connectSrc: ["'self'", ...connectSrcUrls],
+//       scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+//       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+//       workerSrc: ["'self'", 'blob:'],
+//       childSrc: ['blob:'],
+//       objectSrc: [],
+//       imgSrc: [
+//         "'self'",
+//         'blob:',
+//         'data:',
+//         'https://openweathermap.org',
+//         'https://images.unsplash.com',
+//       ],
+//       fontSrc: ["'self'", ...fontSrcUrls],
+//     },
+//   })
+// )
 
 // Define Routes
 app.use('/api/users', require('./routes/users'))
