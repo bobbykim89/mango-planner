@@ -56,42 +56,6 @@ const weatherAppRoute = new Route(
   })
 )
 
-const googleIconRoute = new Route(
-  ({ url }) => {
-    return url.origin === 'https://fonts.googleapis.com'
-  },
-  new CacheFirst({
-    cacheName: 'google-icon',
-    plugins: [
-      new ExpirationPlugin({
-        maxAgeSeconds: 60 * 60 * 24 * 365, // Max age 1 year
-        maxEntries: 20,
-      }),
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-    ],
-  })
-)
-
-const faRoute = new Route(
-  ({ url }) => {
-    return url.origin === 'https://cdnjs.cloudflare.com'
-  },
-  new CacheFirst({
-    cacheName: 'fa-icon',
-    plugins: [
-      new ExpirationPlugin({
-        maxAgeSeconds: 60 * 60 * 24 * 365, // Max age 1 year
-        maxEntries: 20,
-      }),
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-    ],
-  })
-)
-
 const imageRoute = new Route(
   ({ request }) => {
     return request.destination === 'image'
@@ -153,8 +117,6 @@ registerRoute(
 // Register routes
 registerRoute(apiRoute)
 registerRoute(weatherAppRoute)
-registerRoute(googleIconRoute)
-registerRoute(faRoute)
 registerRoute(imageRoute)
 registerRoute(staticResourcesRoute)
 

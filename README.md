@@ -54,7 +54,10 @@ workbox-core\
 workbox-expiration\
 workbox-precaching\
 workbox-routing\
-workbox-strategies
+workbox-strategies\
+@fortawesome/fontawesome-svg-core\
+@fortawesome/free-brands-svg-icons\
+@fortawesome/free-solid-svg-icons
 
 ### Frontend Dev Dependencies
 
@@ -78,6 +81,7 @@ postcss-cli
 4. Config Background sync for offline POST requests.
    - bg-sync-queue
 5. Update Weather APP API key issue.
+6. Remove FontAwesome and Material icons CDN, and add fontawesome package. Update service worker accordingly.
 
 ## Known Issues
 
