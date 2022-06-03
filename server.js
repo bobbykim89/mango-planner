@@ -14,29 +14,33 @@ connectDB()
 // Init Middleware
 app.use(express.json({ extended: false }))
 app.use(mongoSanitize())
-// app.use(helmet())
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+)
 
-const scriptSrcUrls = [
-  'https://cdn.jsdelivr.net',
-  'https://cdnjs.cloudflare.com',
-  'https://cdn.jsdelivr.net',
-]
-const styleSrcUrls = [
-  'https://cdn.jsdelivr.net',
-  'https://cdnjs.cloudflare.com',
-  'https://fonts.googleapis.com',
-]
-const connectSrcUrls = ['https://api.openweathermap.org']
-const defaultSrcUrls = ['https://mangoplanner.herokuapp.com/']
-const fontSrcUrls = [
-  'https://cdnjs.cloudflare.com',
-  'https://fonts.googleapis.com',
-  'https://fonts.gstatic.com',
-]
+// const scriptSrcUrls = [
+//   'https://cdn.jsdelivr.net',
+//   'https://cdnjs.cloudflare.com',
+//   'https://cdn.jsdelivr.net',
+// ]
+// const styleSrcUrls = [
+//   'https://cdn.jsdelivr.net',
+//   'https://cdnjs.cloudflare.com',
+//   'https://fonts.googleapis.com',
+// ]
+// const connectSrcUrls = ['https://api.openweathermap.org']
+// const defaultSrcUrls = ['https://mangoplanner.herokuapp.com/']
+// const fontSrcUrls = [
+//   'https://cdnjs.cloudflare.com',
+//   'https://fonts.googleapis.com',
+//   'https://fonts.gstatic.com',
+// ]
 // app.use(
 //   helmet.contentSecurityPolicy({
 //     directives: {
-//       defaultSrc: ["'self'", ...defaultSrcUrls],
+//       'default-src': ["'self'", ...defaultSrcUrls],
 //       connectSrc: ["'self'", ...connectSrcUrls],
 //       scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
 //       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],

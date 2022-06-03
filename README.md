@@ -81,6 +81,8 @@ postcss-cli
 
 ## Known Issues
 
+1. Workbox PWA is having issue with helmet.js CSP. Since there is only small traffic of users, discarded CSP for now. Still need to figure out how to put CSP guards back on.
+
 ## Change Log
 
 ### v0.1.0
